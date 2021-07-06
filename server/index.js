@@ -17,13 +17,27 @@ app.use(
     origin: "*",
   })
 );
+app.use(express.json());
 
 app.get("/api/servers", (req, res) => {
   const query = "SELECT * FROM servers;";
   pool
     .query(query)
     .then((result) => {
-      res.json(result.rows);
+      res.status(200).json(result.rows);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+app.post("/api/servers", (req, res) => {
+  const { server_name, owner_name, ip_address } = req.body;
+  const query = `INSERT INTO servers (server_name, owner_name, ip_address) VALUES ('${server_name}', '${owner_name}', '${ip_address}');`;
+  pool
+    .query(query)
+    .then((result) => {
+      res.status(200).send("Success");
     })
     .catch((error) => {
       console.log(error);

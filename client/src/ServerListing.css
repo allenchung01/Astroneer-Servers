@@ -1,0 +1,14 @@
+.server-listing {
+  background-color: lightsteelblue;
+  margin: 20px;
+  border-radius: 10px;
+  color: darkslategray;
+}
+
+h2 {
+  padding: 10px;
+}
+
+h3 {
+  padding-bottom: 5px;
+}
