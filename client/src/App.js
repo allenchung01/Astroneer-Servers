@@ -1,5 +1,6 @@
 import "./App.css";
 import "./ServerListing.js";
+import "./ServerListingForm.css";
 import React, { useState, useEffect } from "react";
 import ServerListing from "./ServerListing";
 import axios from "axios";
@@ -50,29 +51,32 @@ function App() {
           <h1>ASTRONEER SERVERS</h1>
         </ul>
       </nav>
-      {serverListings.map((listing, index) => {
-        return <ServerListing listing={listing} key={index} />;
-      })}
-      <div className="form">
-        <h3>Server Name</h3>
-        <input
-          onChange={(event) => {
-            setServerName(event.target.value);
-          }}
-        ></input>
-        <h3>Owner Name</h3>
-        <input
-          onChange={(event) => {
-            setOwnerName(event.target.value);
-          }}
-        ></input>
-        <h3>IP Address</h3>
-        <input
-          onChange={(event) => {
-            setIpAddress(event.target.value);
-          }}
-        ></input>
-        <button onClick={postServer}>Submit</button>
+      <div className="main-content">
+        {serverListings.map((listing, index) => {
+          return <ServerListing listing={listing} key={index} />;
+        })}
+        <div className="form">
+          <h1>List My Server.</h1>
+          <input
+            onChange={(event) => {
+              setServerName(event.target.value);
+            }}
+            placeholder="server name"
+          ></input>
+          <input
+            onChange={(event) => {
+              setOwnerName(event.target.value);
+            }}
+            placeholder="owner name"
+          ></input>
+          <input
+            onChange={(event) => {
+              setIpAddress(event.target.value);
+            }}
+            placeholder="ip address"
+          ></input>
+          <button onClick={postServer}>Submit</button>
+        </div>
       </div>
     </div>
   );

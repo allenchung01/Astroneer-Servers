@@ -1,14 +1,21 @@
 .server-listing {
-  background-color: lightsteelblue;
+  background-color: white;
   margin: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
   color: darkslategray;
+  padding: 20px;
+  display: inline-block;
+  border: 1px solid rgb(239, 239, 239);
 }
 
 h2 {
-  padding: 10px;
+  padding: 0px;
+  font-weight: bold;
+  font-size: 13pt;
 }
 
 h3 {
-  padding-bottom: 5px;
+  margin-top: 5px;
+  font-weight: lighter;
+  font-size: 8pt;
 }

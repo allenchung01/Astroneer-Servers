@@ -6,6 +6,7 @@
 
 .App {
   text-align: center;
+  background-color: whitesmoke;
 }
 
 nav {
@@ -15,25 +16,46 @@ nav {
 .nav-bar {
   display: flex;
   align-items: center;
-  background-color: #1456e3;
+  background-color: darkslateblue;
   box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19);
+  /*letter-spacing: 1px;*/
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 100px;
+  padding-left: 100px;
 }
 
 .nav-bar .tabs {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 20%;
 }
 
 .nav-bar .tabs li {
   display: inline;
   color: white;
-  font-weight: bold;
+  font-weight: normal;
+  font-size: 10pt;
 }
 
 .nav-bar h1 {
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
   margin-left: auto;
-  padding: 10px;
+  font-weight: normal;
+}
+
+.main-content {
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.form {
+  margin: 0px auto 20px auto;
+  padding: 20px;
+  width: 50%;
+  border: 2px solid rgb(237, 237, 237);
+  border-radius: 20px;
+}
+
+.form h3 {
 }
