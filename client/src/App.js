@@ -10,6 +10,7 @@ function App() {
   const [serverName, setServerName] = useState("");
   const [ownerName, setOwnerName] = useState("");
   const [ipAddress, setIpAddress] = useState("");
+  const [serverDescription, setServerDescription] = useState("");
 
   useEffect(() => {
     axios
@@ -27,6 +28,7 @@ function App() {
       server_name: serverName,
       owner_name: ownerName,
       ip_address: ipAddress,
+      server_description: serverDescription,
     };
     axios
       .post("http://localhost:5000/api/servers", listing)
@@ -52,29 +54,42 @@ function App() {
         </ul>
       </nav>
       <div className="main-content">
+        <h1>Server List</h1>
         {serverListings.map((listing, index) => {
           return <ServerListing listing={listing} key={index} />;
         })}
         <div className="form">
-          <h1>List My Server.</h1>
-          <input
-            onChange={(event) => {
-              setServerName(event.target.value);
-            }}
-            placeholder="server name"
-          ></input>
-          <input
-            onChange={(event) => {
-              setOwnerName(event.target.value);
-            }}
-            placeholder="owner name"
-          ></input>
-          <input
-            onChange={(event) => {
-              setIpAddress(event.target.value);
-            }}
-            placeholder="ip address"
-          ></input>
+          <h1>List your Server.</h1>
+          <div className="inputs">
+            <div className="left-inputs">
+              <input
+                onChange={(event) => {
+                  setServerName(event.target.value);
+                }}
+                placeholder="server name"
+              ></input>
+              <input
+                onChange={(event) => {
+                  setOwnerName(event.target.value);
+                }}
+                placeholder="owner name"
+              ></input>
+              <input
+                onChange={(event) => {
+                  setIpAddress(event.target.value);
+                }}
+                placeholder="ip address"
+              ></input>
+            </div>
+            <div className="right-inputs">
+              <textarea
+                onChange={(event) => {
+                  setServerDescription(event.target.value);
+                }}
+                placeholder="server description"
+              ></textarea>
+            </div>
+          </div>
           <button onClick={postServer}>Submit</button>
         </div>
       </div>

@@ -32,8 +32,8 @@ app.get("/api/servers", (req, res) => {
 });
 
 app.post("/api/servers", (req, res) => {
-  const { server_name, owner_name, ip_address } = req.body;
-  const query = `INSERT INTO servers (server_name, owner_name, ip_address) VALUES ('${server_name}', '${owner_name}', '${ip_address}');`;
+  const { server_name, owner_name, ip_address, server_description } = req.body;
+  const query = `INSERT INTO servers (server_name, owner_name, ip_address, server_description) VALUES ('${server_name}', '${owner_name}', '${ip_address}', '${server_description}');`;
   pool
     .query(query)
     .then((result) => {

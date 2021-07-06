@@ -9,6 +9,8 @@
 
 .form h1 {
   font-size: 20pt;
+  margin-bottom: 20px;
+  margin-top: 0px;
 }
 
 .form button {
@@ -29,4 +31,33 @@
   border-radius: 10px;
   border: 1px solid rgb(237, 237, 237);
   font-size: 8px;
+}
+
+.inputs {
+  display: flex;
+  justify-content: center;
+}
+
+.left-inputs {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.right-inputs {
+  display: inline-flex;
+  align-items: stretch;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.right-inputs textarea {
+  flex: 1;
+}
+
+textarea {
+  border: 1px solid rgb(237, 237, 237);
+  border-radius: 10px;
+  resize: none;
+  color: darkslategrey;
+  padding: 10px;
 }
