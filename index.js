@@ -8,11 +8,15 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const pool = new Pool({
-  host: "localhost",
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+  /*host: "localhost",
   user: "allenchung",
   database: "astroneer_servers",
   password: "password",
-  port: 5432,
+  port: 5432,*/
 });
 
 app.use(
@@ -50,7 +54,6 @@ app.post("/api/servers", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.send("Freak");
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
