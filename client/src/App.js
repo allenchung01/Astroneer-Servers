@@ -15,7 +15,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/servers")
+      .get("https://astroneer-servers.herokuapp.com/api/servers")
       .then((response) => {
         setServerListings(response.data);
       })
@@ -33,7 +33,7 @@ function App() {
       server_status: true,
     };
     axios
-      .post("/api/servers", listing)
+      .post("https://astroneer-servers.herokuapp.com/api/servers", listing)
       .then((result) => {
         setServerListings([...serverListings, listing]);
         console.log(result.data);
