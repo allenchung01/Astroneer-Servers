@@ -29,6 +29,7 @@ function App() {
       owner_name: ownerName,
       ip_address: ipAddress,
       server_description: serverDescription,
+      server_status: true,
     };
     axios
       .post("http://localhost:5000/api/servers", listing)
