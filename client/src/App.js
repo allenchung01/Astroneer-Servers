@@ -1,6 +1,7 @@
 import "./App.css";
 import "./ServerListing.js";
 import "./ServerListingForm.css";
+import "./RoundedTriangle.css";
 import React, { useState, useEffect } from "react";
 import ServerListing from "./ServerListing";
 import axios from "axios";
@@ -51,16 +52,17 @@ function App() {
             <li>PAGE 2</li>
             <li>PAGE 3</li>
           </div>
-          <h1>ASTRONEER SERVERS</h1>
+          <div className="triangle"></div>
+          <h1>ASTRONEER-SERVER.COM</h1>
         </ul>
       </nav>
       <div className="main-content">
-        <h1>Server List</h1>
+        <h1>Joinable Servers</h1>
         {serverListings.map((listing, index) => {
           return <ServerListing listing={listing} key={index} />;
         })}
         <div className="form">
-          <h1>List your Server.</h1>
+          <h1>Add a Server.</h1>
           <div className="inputs">
             <div className="left-inputs">
               <input

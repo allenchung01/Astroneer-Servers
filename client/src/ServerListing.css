@@ -1,4 +1,5 @@
 .server-listing {
+  position: relative;
   background-color: white;
   margin: 10px;
   border-radius: 20px;
@@ -45,4 +46,45 @@ h3 {
   display: inline-block;
   border-radius: 50%;
   margin-right: 10px;
+}
+
+.popup-description-hidden {
+  visibility: hidden;
+  position: absolute;
+  /*height: 50px;
+  width: 100px;*/
+  background-color: white;
+  border: 1px solid rgb(239, 239, 239);
+  border-radius: 10px;
+  text-align: left;
+  padding: 10px;
+  margin-top: -50px;
+  color: darkslategrey;
+  font-size: 10px;
+}
+
+.popup-description-visible {
+  visibility: visible;
+  position: absolute;
+  /*height: 50px;
+  width: 100px;*/
+  background-color: white;
+  border: 1px solid rgb(239, 239, 239);
+  border-radius: 10px;
+  text-align: left;
+  padding: 10px;
+  margin-top: -50px;
+  color: darkslategrey;
+  font-size: 10px;
+}
+
+.popup-description-hidden::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
 }
