@@ -21,7 +21,7 @@ app.use(
   })
 );
 app.use(express.json());
-app.use(express.static(path.resolve(__dirname, "../client/build")));
+app.use(express.static(path.join(__dirname, "build")));
 
 app.get("/api/servers", (req, res) => {
   const query = "SELECT * FROM servers;";
@@ -50,7 +50,8 @@ app.post("/api/servers", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+  res.send("Freak");
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 app.listen(PORT, () => {
