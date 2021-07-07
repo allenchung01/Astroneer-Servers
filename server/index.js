@@ -1,8 +1,11 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 const { Pool } = require("pg");
 
 const app = express();
+
+const PORT = process.env.PORT || 3001;
 
 const pool = new Pool({
   host: "localhost",
@@ -18,6 +21,7 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 app.get("/api/servers", (req, res) => {
   const query = "SELECT * FROM servers;";
@@ -45,6 +49,10 @@ app.post("/api/servers", (req, res) => {
     });
 });
 
-app.listen(5000, () => {
-  console.log("Server listening on port 5000...");
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}}...`);
 });

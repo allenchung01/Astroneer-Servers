@@ -1,9 +1,9 @@
 form {
   margin: 0px auto 20px auto;
-  padding: 20px;
+  padding: 0px 0px 20px 0px;
   width: 50%;
-  border: 2px solid rgb(237, 237, 237);
-  border-radius: 20px;
+  /*border: 2px solid rgb(237, 237, 237);
+  border-radius: 20px;*/
   color: darkslategrey;
 }
 
@@ -31,6 +31,10 @@ form input {
   border-radius: 10px;
   border: 1px solid rgb(237, 237, 237);
   font-size: 8px;
+}
+
+form input[type="submit"] {
+  color: darkslategrey;
 }
 
 input:focus,
@@ -67,6 +71,7 @@ textarea {
   border: 1px solid rgb(237, 237, 237);
   border-radius: 10px;
   resize: none;
+  font-size: 8px;
   color: darkslategrey;
   padding: 10px;
 }

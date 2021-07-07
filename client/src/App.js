@@ -15,7 +15,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/servers")
+      .get("http://localhost:3001/api/servers")
       .then((response) => {
         setServerListings(response.data);
       })
@@ -33,7 +33,7 @@ function App() {
       server_status: true,
     };
     axios
-      .post("http://localhost:5000/api/servers", listing)
+      .post("/api/servers", listing)
       .then((result) => {
         setServerListings([...serverListings, listing]);
         console.log(result.data);
@@ -53,7 +53,7 @@ function App() {
             <li>PAGE 3</li>
           </div>
           <div className="triangle"></div>
-          <h1>ASTRONEER-SERVER.COM</h1>
+          <h1>ASTRONEER-SERVERS.com</h1>
         </ul>
       </nav>
       <div className="main-content">
@@ -92,7 +92,7 @@ function App() {
                 onChange={(event) => {
                   setServerDescription(event.target.value);
                 }}
-                placeholder="server description"
+                placeholder="server description..."
                 required
               ></textarea>
             </div>
