@@ -12,6 +12,7 @@
 nav {
   background-color: #1456e3;
   position: fixed;
+  z-index: 1;
   width: 100%;
 }
 

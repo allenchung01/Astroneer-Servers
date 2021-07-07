@@ -61,7 +61,7 @@ function App() {
         {serverListings.map((listing, index) => {
           return <ServerListing listing={listing} key={index} />;
         })}
-        <div className="form">
+        <form onSubmit={postServer}>
           <h1>Add a Server.</h1>
           <div className="inputs">
             <div className="left-inputs">
@@ -70,18 +70,21 @@ function App() {
                   setServerName(event.target.value);
                 }}
                 placeholder="server name"
+                required
               ></input>
               <input
                 onChange={(event) => {
                   setOwnerName(event.target.value);
                 }}
                 placeholder="owner name"
+                required
               ></input>
               <input
                 onChange={(event) => {
                   setIpAddress(event.target.value);
                 }}
                 placeholder="ip address"
+                required
               ></input>
             </div>
             <div className="right-inputs">
@@ -90,11 +93,12 @@ function App() {
                   setServerDescription(event.target.value);
                 }}
                 placeholder="server description"
+                required
               ></textarea>
             </div>
           </div>
-          <button onClick={postServer}>Submit</button>
-        </div>
+          <input type="submit"></input>
+        </form>
       </div>
     </div>
   );

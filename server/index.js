@@ -40,6 +40,7 @@ app.post("/api/servers", (req, res) => {
       res.status(200).send("Success");
     })
     .catch((error) => {
+      res.status(400).send(error);
       console.log(error);
     });
 });
