@@ -4,6 +4,8 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 import App from "./Components/App.js";
 import Home from "./Components/Home.js";
+import SignUp from "./Components/SignUp.js";
+import SignIn from "./Components/SignIn.js";
 
 ReactDOM.render(
   <React.StrictMode>
