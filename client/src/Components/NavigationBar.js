@@ -12,7 +12,11 @@ function NavigationBar() {
           </a>
           <li>MY SERVERS (COMING SOON)</li>
         </div>
-        <h1>ASTRONEER-SERVERS.com</h1>
+        <div className="right-items">
+          <button>Log In</button>
+          <button>Sign Up</button>
+          <h1>ASTRONEER-SERVERS.com</h1>
+        </div>
       </ul>
     </nav>
   );
