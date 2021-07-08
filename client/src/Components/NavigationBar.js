@@ -1,5 +1,7 @@
-import "../Styles/NavigationBar.css";
+import { Link } from "react-router-dom";
 import React from "react";
+
+import "../Styles/NavigationBar.css";
 
 function NavigationBar() {
   return (
@@ -13,8 +15,12 @@ function NavigationBar() {
           <li>MY SERVERS (COMING SOON)</li>
         </div>
         <div className="right-items">
-          <button>Log In</button>
-          <button>Sign Up</button>
+          <Link className="nav-bar-button" to="/">
+            Log In
+          </Link>
+          <Link className="nav-bar-button" to="/">
+            Sign Up
+          </Link>
           <h1>ASTRONEER-SERVERS.com</h1>
         </div>
       </ul>
