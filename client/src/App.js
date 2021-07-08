@@ -2,9 +2,11 @@ import "./App.css";
 import "./ServerListing.js";
 import "./ServerListingForm.css";
 import "./RoundedTriangle.css";
+import "./Paginate.css";
 import React, { useState, useEffect } from "react";
 import ServerListing from "./ServerListing";
 import axios from "axios";
+import ReactPaginate from "react-paginate";
 
 function App() {
   const [serverListings, setServerListings] = useState([]);
@@ -12,6 +14,16 @@ function App() {
   const [ownerName, setOwnerName] = useState("");
   const [ipAddress, setIpAddress] = useState("");
   const [serverDescription, setServerDescription] = useState("");
+  const [pageNumber, setPageNumber] = useState(0);
+
+  const listingsPerPage = 12;
+  const listingsVisited = pageNumber * listingsPerPage;
+  const currentPageListings = serverListings
+    .slice(listingsVisited, listingsVisited + listingsPerPage)
+    .map((listing, index) => {
+      return <ServerListing listing={listing} key={index} />;
+    });
+  const pageCount = Math.ceil(serverListings.length / listingsPerPage);
 
   useEffect(() => {
     axios
@@ -43,6 +55,10 @@ function App() {
       });
   };
 
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
+
   return (
     <div className="App">
       <nav>
@@ -58,9 +74,19 @@ function App() {
       </nav>
       <div className="main-content">
         <h1>Joinable Servers</h1>
-        {serverListings.map((listing, index) => {
-          return <ServerListing listing={listing} key={index} />;
-        })}
+        {currentPageListings}
+        <ReactPaginate
+          previousLabel={"←"}
+          nextLabel={"→"}
+          pageCount={pageCount}
+          onPageChange={changePage}
+          containerClassName="pagination-container"
+          previousLinkClassName="previous-link"
+          nextLinkClassName="next-link"
+          disabledClassName="pagination-disabled"
+          activeClassName="pagination-active"
+          pageClassName="pagination-page"
+        />
         <form onSubmit={postServer}>
           <h1>Add a Server.</h1>
           <div className="inputs">

@@ -4,4 +4,5 @@ CREATE TABLE servers (
     owner_name VARCHAR(20) NOT NULL CHECK (owner_name <> ''),
     ip_address INET NOT NULL CHECK (ip_address <> ''),
     server_description VARCHAR(255) NOT NULL,
+    server_status BOOLEAN NOT NULL
 );

@@ -21,12 +21,13 @@ nav {
   align-items: center;
   /*background-color: rgb(0, 106, 255);*/
   background-color: white;
-  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19);
+  /*box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19);*/
   /*letter-spacing: 1px;*/
   padding-top: 20px;
   padding-bottom: 20px;
   padding-right: 100px;
   padding-left: 100px;
+  border-bottom: 1px solid rgb(237, 237, 237);
 }
 
 .nav-bar .tabs {
