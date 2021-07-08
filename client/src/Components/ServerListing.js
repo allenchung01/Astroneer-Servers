@@ -1,5 +1,5 @@
+import "../Styles/ServerListing.css";
 import { useState } from "react";
-import "./ServerListing.css";
 
 function ServerListing(props) {
   const { listing } = props;

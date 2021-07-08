@@ -1,11 +1,10 @@
-import "./App.css";
-import "./ServerListing.js";
-import "./ServerListingForm.css";
-import "./RoundedTriangle.css";
-import "./Paginate.css";
+import "../Styles/ServerListing.css";
+import "../Styles/App.css";
+import "../Styles/ServerListingForm.css";
+import "../Styles/Paginate.css";
 import React, { useState, useEffect } from "react";
-import ServerListing from "./ServerListing";
 import axios from "axios";
+import ServerListing from "./ServerListing.js";
 import ReactPaginate from "react-paginate";
 
 function App() {
@@ -70,7 +69,6 @@ function App() {
             </a>
             <li>MY SERVERS</li>
           </div>
-          <div className="triangle"></div>
           <h1>ASTRONEER-SERVERS.com</h1>
         </ul>
       </nav>
