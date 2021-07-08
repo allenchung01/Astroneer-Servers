@@ -8,7 +8,9 @@ function NavigationBar() {
     <nav>
       <ul className="nav-bar">
         <div className="tabs">
-          <li>HOME</li>
+          <Link to="/">
+            <li>HOME</li>
+          </Link>
           <a href="https://astroneer.space/dedicatedserver/">
             <li>OFFICIAL SITE</li>
           </a>
@@ -21,7 +23,9 @@ function NavigationBar() {
           <Link className="nav-bar-button" to="/sign-up">
             Sign Up
           </Link>
-          <h1>ASTRONEER-SERVERS.com</h1>
+          <Link className="nav-bar-title" to="/">
+            ASTRONEER-SERVERS.com
+          </Link>
         </div>
       </ul>
     </nav>

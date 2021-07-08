@@ -48,8 +48,8 @@ nav {
 .right-items {
   margin-left: auto;
   display: flex;
-  justify-content: space-evenly;
-  width: 50%;
+  justify-content: space-between;
+  width: 46%;
 }
 
 .right-items .nav-bar-button {
@@ -63,4 +63,13 @@ nav {
   border-radius: 10px;
   white-space: nowrap;
   margin-top: auto;
+}
+
+.nav-bar-title {
+  color: darkslategrey;
+  /*color: white;*/
+  font-weight: bold;
+  font-size: 20pt;
+  display: inline-block;
+  white-space: nowrap;
 }
