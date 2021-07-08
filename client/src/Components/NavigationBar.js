@@ -15,10 +15,10 @@ function NavigationBar() {
           <li>MY SERVERS (COMING SOON)</li>
         </div>
         <div className="right-items">
-          <Link className="nav-bar-button" to="/">
+          <Link className="nav-bar-button" to="/log-in">
             Log In
           </Link>
-          <Link className="nav-bar-button" to="/">
+          <Link className="nav-bar-button" to="/sign-up">
             Sign Up
           </Link>
           <h1>ASTRONEER-SERVERS.com</h1>
