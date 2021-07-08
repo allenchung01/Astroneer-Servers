@@ -64,9 +64,11 @@ function App() {
       <nav>
         <ul className="nav-bar">
           <div className="tabs">
-            <li>SERVER LIST</li>
-            <li>RENT A SERVER</li>
-            <li>HOST A SERVER</li>
+            <li>HOME</li>
+            <a href="https://astroneer.space/dedicatedserver/">
+              <li>OFFICIAL SITE</li>
+            </a>
+            <li>MY SERVERS</li>
           </div>
           <div className="triangle"></div>
           <h1>ASTRONEER-SERVERS.com</h1>
@@ -88,7 +90,7 @@ function App() {
           pageClassName="pagination-page"
         />
         <form onSubmit={postServer}>
-          <h1>Add a Server.</h1>
+          <h1>Add a Server</h1>
           <div className="inputs">
             <div className="left-inputs">
               <input
