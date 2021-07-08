@@ -12,7 +12,7 @@ function App() {
   const [serverListings, setServerListings] = useState([]);
   const [serverName, setServerName] = useState("");
   const [ownerName, setOwnerName] = useState("");
-  const [ipAddress, setIpAddress] = useState("");
+  const [serverUrl, setServerUrl] = useState("");
   const [serverDescription, setServerDescription] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
 
@@ -40,7 +40,7 @@ function App() {
     const listing = {
       server_name: serverName,
       owner_name: ownerName,
-      ip_address: ipAddress,
+      server_url: serverUrl,
       server_description: serverDescription,
       server_status: true,
     };
@@ -64,9 +64,9 @@ function App() {
       <nav>
         <ul className="nav-bar">
           <div className="tabs">
-            <li>SERVERS</li>
-            <li>PAGE 2</li>
-            <li>PAGE 3</li>
+            <li>SERVER LIST</li>
+            <li>RENT A SERVER</li>
+            <li>HOST A SERVER</li>
           </div>
           <div className="triangle"></div>
           <h1>ASTRONEER-SERVERS.com</h1>
@@ -107,9 +107,9 @@ function App() {
               ></input>
               <input
                 onChange={(event) => {
-                  setIpAddress(event.target.value);
+                  setServerUrl(event.target.value);
                 }}
-                placeholder="ip address"
+                placeholder="server url"
                 required
               ></input>
             </div>

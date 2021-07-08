@@ -31,7 +31,7 @@ function ServerListing(props) {
         <h2>{listing.server_name}</h2>
       </div>
       <h3>Owner: {listing.owner_name}</h3>
-      <h3>IP Address: {listing.ip_address}</h3>
+      <h3>IP Address: {listing.server_url}</h3>
     </div>
   );
 }
