@@ -19,12 +19,6 @@
   background-color: rgb(224, 224, 224);
 }
 
-.previous-link {
-}
-
-.next-link {
-}
-
 .pagination-disabled a {
   background-color: whitesmoke;
   border: 0px;
@@ -45,7 +39,4 @@
   background-color: darkslategrey;
   color: white;
   border: 0px;
-}
-
-.pagination-page {
 }

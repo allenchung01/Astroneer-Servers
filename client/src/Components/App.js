@@ -1,11 +1,14 @@
 import "../Styles/ServerListing.css";
 import "../Styles/App.css";
-import "../Styles/ServerListingForm.css";
+import "../Styles/AddServerForm.css";
 import "../Styles/Paginate.css";
 import React, { useState, useEffect } from "react";
+import ReactPaginate from "react-paginate";
 import axios from "axios";
 import ServerListing from "./ServerListing.js";
-import ReactPaginate from "react-paginate";
+import NavigationBar from "./NavigationBar.js";
+import AddServerForm from "./AddServerForm.js";
+import Paginate from "./Paginate.js";
 
 function App() {
   const [serverListings, setServerListings] = useState([]);
@@ -60,71 +63,18 @@ function App() {
 
   return (
     <div className="App">
-      <nav>
-        <ul className="nav-bar">
-          <div className="tabs">
-            <li>HOME</li>
-            <a href="https://astroneer.space/dedicatedserver/">
-              <li>OFFICIAL SITE</li>
-            </a>
-            <li>MY SERVERS</li>
-          </div>
-          <h1>ASTRONEER-SERVERS.com</h1>
-        </ul>
-      </nav>
+      <NavigationBar />
       <div className="main-content">
         <h1>Joinable Servers</h1>
         {currentPageListings}
-        <ReactPaginate
-          previousLabel={"←"}
-          nextLabel={"→"}
-          pageCount={pageCount}
-          onPageChange={changePage}
-          containerClassName="pagination-container"
-          previousLinkClassName="previous-link"
-          nextLinkClassName="next-link"
-          disabledClassName="pagination-disabled"
-          activeClassName="pagination-active"
-          pageClassName="pagination-page"
+        <Paginate pageCount={pageCount} changePage={changePage} />
+        <AddServerForm
+          postServer={postServer}
+          setServerName={setServerName}
+          setOwnerName={setOwnerName}
+          setServerUrl={setServerUrl}
+          setServerDescription={setServerDescription}
         />
-        <form onSubmit={postServer}>
-          <h1>Add a Server</h1>
-          <div className="inputs">
-            <div className="left-inputs">
-              <input
-                onChange={(event) => {
-                  setServerName(event.target.value);
-                }}
-                placeholder="server name"
-                required
-              ></input>
-              <input
-                onChange={(event) => {
-                  setOwnerName(event.target.value);
-                }}
-                placeholder="owner name"
-                required
-              ></input>
-              <input
-                onChange={(event) => {
-                  setServerUrl(event.target.value);
-                }}
-                placeholder="server url"
-                required
-              ></input>
-            </div>
-            <div className="right-inputs">
-              <textarea
-                onChange={(event) => {
-                  setServerDescription(event.target.value);
-                }}
-                placeholder="server description..."
-                required
-              ></textarea>
-            </div>
-          </div>
-          <input type="submit"></input>
-        </form>
       </div>
     </div>
   );
