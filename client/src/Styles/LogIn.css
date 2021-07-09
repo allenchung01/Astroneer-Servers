@@ -1,0 +1,18 @@
+.log-in-page {
+  margin-right: 80px;
+  margin-left: 80px;
+  min-height: 100vh;
+  background-color: whitesmoke;
+}
+
+.log-in-page form {
+  padding-top: 86px;
+  margin: auto;
+}
+
+.log-in-page input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}

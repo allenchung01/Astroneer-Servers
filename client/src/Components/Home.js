@@ -5,7 +5,7 @@ import ServerListing from "./ServerListing.js";
 import AddServerForm from "./AddServerForm.js";
 import Paginate from "./Paginate.js";
 import "../Styles/ServerListing.css";
-import "../Styles/App.css";
+import "../Styles/Home.css";
 import "../Styles/AddServerForm.css";
 import "../Styles/Paginate.css";
 
