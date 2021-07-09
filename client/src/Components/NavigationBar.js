@@ -24,7 +24,7 @@ function NavigationBar() {
             Sign Up
           </Link>
           <Link className="nav-bar-title" to="/">
-            ASTRONEER-SERVERS.com
+            ASTRONEER SERVERS
           </Link>
         </div>
       </ul>
