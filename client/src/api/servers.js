@@ -1,7 +1,5 @@
 import axios from "axios";
 
-import { auth } from "../firebase.js";
-
 // Retrieves a list of all posted servers.
 export const getServers = (setServerListings) => {
   axios
@@ -16,14 +14,17 @@ export const getServers = (setServerListings) => {
 
 // Posts a server listing with the given information, and then executes the callback.
 export const postServer = async (listing, callback) => {
-  if (!auth.currentUser) {
+  /*if (!auth.currentUser) {
     return;
-  }
-  const token = await auth.currentUser.getIdToken();
+  }*/
+  //const token = await auth.currentUser.getIdToken();
   axios
-    .post("http://localhost:3001/api/servers", listing, {
+    .post(
+      "http://localhost:3001/api/servers",
+      listing /*, {
       headers: { authorization: `Bearer ${token}` },
-    })
+    }*/
+    )
     .then((result) => {
       callback();
       console.log(result.data);

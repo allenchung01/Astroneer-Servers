@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
+import axios from "axios";
 
 const config = {
   apiKey: "AIzaSyDdkkN7jp8H_P2fPLffNRxC3nLnmgYkbwE",
@@ -18,5 +19,17 @@ if (!firebase.apps.length) {
     console.log(err);
   }
 }
+
+firebase.auth().onAuthStateChanged((authUser) => {
+  if (authUser) {
+    return firebase
+      .auth()
+      .currentUser.getIdToken()
+      .then((idToken) => {
+        axios.defaults.headers.common["Authorization"] = idToken;
+      })
+      .catch();
+  }
+});
 
 export const auth = firebase.auth();

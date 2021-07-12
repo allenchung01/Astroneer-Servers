@@ -24,6 +24,7 @@ function SignUp() {
           onChange={(event) => {
             setEmail(event.target.value);
           }}
+          autoComplete="email"
         />
         <input
           type="password"
@@ -31,6 +32,7 @@ function SignUp() {
           onChange={(event) => {
             setPassword(event.target.value);
           }}
+          autoComplete="new-password"
         />
         <input
           type="password"
@@ -38,6 +40,7 @@ function SignUp() {
           onChange={(event) => {
             setConfirmPassword(event.target.value);
           }}
+          autoComplete="new-password"
         />
         <input type="button" onClick={onSubmit} value="Sign Up" />
       </form>

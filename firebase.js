@@ -7,34 +7,23 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
-const getAuthToken = (req, res, next) => {
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.split(" ")[0] === "Bearer"
-  ) {
-    req.authToken = req.headers.authorization.split(" ")[1];
-  } else {
-    req.authToken = null;
+const checkIfAuthenticated = async (req, res, next) => {
+  try {
+    const idToken = req.headers.authorization;
+    admin
+      .auth()
+      .verifyIdToken(idToken)
+      .then((decodedToken) => {
+        req.body.uid = decodedToken.uid;
+        next();
+      })
+      .catch((reason) => {
+        res.status(401).send("Unauthorized");
+        console.log(reason);
+      });
+  } catch {
+    console.log("Could not find idToken");
   }
-  next();
-};
-
-const checkIfAuthenticated = (req, res, next) => {
-  console.log("checkIfAuthenticated");
-  getAuthToken(req, res, async () => {
-    try {
-      const { authToken } = req;
-      const userInfo = await admin.auth().verifyIdToken(authToken);
-      req.authId = userInfo.uid;
-      console.log("AUTHENTICATED");
-      return next();
-    } catch (e) {
-      console.log("NOT AUTHENTICATED");
-      return res
-        .status(401)
-        .send({ error: "You are not authorized to make this request." });
-    }
-  });
 };
 
 const createUser = async (req, res) => {

@@ -20,6 +20,7 @@ function LogIn() {
           onChange={(event) => {
             setEmail(event.target.value);
           }}
+          autoComplete="email"
         />
         <input
           type="password"
@@ -27,6 +28,7 @@ function LogIn() {
           onChange={(event) => {
             setPassword(event.target.value);
           }}
+          autoComplete="current-password"
         />
         <input type="button" onClick={onSubmit} value="Log In" />
       </form>
