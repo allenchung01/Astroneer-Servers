@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import { createUserAccount } from "../firebase-auth.js";
 import "../Styles/LogIn.css";
@@ -7,16 +8,27 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const history = useHistory();
 
   const onSubmit = () => {
     if (password === confirmPassword) {
-      createUserAccount(email, password);
+      createUserAccount(email, password, (error) => {
+        if (!error) {
+          history.push("/");
+        } else {
+          setErrorMessage(error.message);
+        }
+      });
+    } else {
+      setErrorMessage("Passwords do not match.");
     }
   };
 
   return (
     <div className="log-in-page">
-      <form onSubmit={onSubmit}>
+      <form>
         <h1>Sign Up</h1>
         <input
           type="email"
@@ -42,6 +54,9 @@ function SignUp() {
           }}
           autoComplete="new-password"
         />
+        {errorMessage ? (
+          <h3 className="error-message">{errorMessage}</h3>
+        ) : null}
         <input type="button" onClick={onSubmit} value="Sign Up" />
       </form>
     </div>

@@ -21,6 +21,7 @@ if (!firebase.apps.length) {
 }
 
 firebase.auth().onAuthStateChanged((authUser) => {
+  console.log("auth state did change");
   if (authUser) {
     return firebase
       .auth()
@@ -29,6 +30,8 @@ firebase.auth().onAuthStateChanged((authUser) => {
         axios.defaults.headers.common["Authorization"] = idToken;
       })
       .catch();
+  } else {
+    axios.defaults.headers.common["Authorization"] = null;
   }
 });
 

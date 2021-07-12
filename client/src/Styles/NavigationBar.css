@@ -50,6 +50,11 @@ nav {
   display: flex;
   justify-content: space-between;
   width: 43%;
+  align-items: center;
+}
+
+.right-items h3 {
+  color: darkslategrey;
 }
 
 .right-items .nav-bar-button {

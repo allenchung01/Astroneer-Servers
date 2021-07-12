@@ -3,7 +3,9 @@ import React from "react";
 
 import "../Styles/NavigationBar.css";
 
-function NavigationBar() {
+function NavigationBar(props) {
+  const { currentUser } = props;
+
   return (
     <nav>
       <ul className="nav-bar">
@@ -14,15 +16,20 @@ function NavigationBar() {
           <a href="https://astroneer.space/dedicatedserver/">
             <li>OFFICIAL SITE</li>
           </a>
-          <li>MY SERVERS (COMING SOON)</li>
+          <li>MY SERVERS</li>
         </div>
         <div className="right-items">
-          <Link className="nav-bar-button" to="/log-in">
-            Log In
-          </Link>
-          <Link className="nav-bar-button" to="/sign-up">
-            Sign Up
-          </Link>
+          {currentUser ? <h3>{currentUser.email}</h3> : null}
+          {currentUser ? null : (
+            <Link className="nav-bar-button" to="/log-in">
+              Log In
+            </Link>
+          )}
+          {currentUser ? null : (
+            <Link className="nav-bar-button" to="/sign-up">
+              Sign Up
+            </Link>
+          )}
           <Link className="nav-bar-title" to="/">
             ASTRONEER SERVERS
           </Link>
