@@ -1,21 +1,34 @@
-import React from "react";
-import loginUser from "../firebase.js";
+import React, { useState } from "react";
 
+import { loginUser } from "../firebase-auth.js";
 import "../Styles/LogIn.css";
 
 function LogIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const onSubmit = () => {
-    loginUser("test91240124@gmail.com", "Freak1234");
-    console.log("Clicked Log In Button");
+    loginUser(email, password);
   };
 
   return (
     <div className="log-in-page">
-      <form onSubmit={onSubmit}>
+      <form>
         <h1>Log In</h1>
-        <input placeholder="username" />
-        <input type="password" placeholder="password" />
-        <input type="button" onClick={onSubmit} />
+        <input
+          placeholder="email"
+          onChange={(event) => {
+            setEmail(event.target.value);
+          }}
+        />
+        <input
+          type="password"
+          placeholder="password"
+          onChange={(event) => {
+            setPassword(event.target.value);
+          }}
+        />
+        <input type="button" onClick={onSubmit} value="Log In" />
       </form>
     </div>
   );

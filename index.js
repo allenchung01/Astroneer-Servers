@@ -34,7 +34,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 //app.use(express.static(path.join(__dirname, "build")));
 
-app.use("/users", require("./routes/users.js"));
+app.use("/api/users", require("./routes/users.js"));
 
 app.get("/api/servers", (req, res) => {
   const query = "SELECT * FROM servers;";

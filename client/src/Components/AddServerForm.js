@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 
+import { postServer } from "../api/servers";
 import "../Styles/AddServerForm.css";
 
 function AddServerForm(props) {
-  const {
-    postServer,
-    setServerName,
-    setOwnerName,
-    setServerUrl,
-    setServerDescription,
-  } = props;
+  const { serverListings, setServerListings } = props;
+
+  const [serverName, setServerName] = useState("");
+  const [ownerName, setOwnerName] = useState("");
+  const [serverUrl, setServerUrl] = useState("");
+  const [serverDescription, setServerDescription] = useState("");
+
+  const onSubmit = () => {
+    const listing = {
+      server_name: serverName,
+      owner_name: ownerName,
+      server_url: serverUrl,
+      server_description: serverDescription,
+      server_status: true,
+    };
+    postServer(listing, () => {
+      setServerListings([...serverListings, listing]);
+    });
+  };
 
   return (
-    <form onSubmit={postServer}>
+    <form>
       <h1>Add a Server</h1>
       <div className="inputs">
         <div className="left-inputs">
@@ -48,7 +61,7 @@ function AddServerForm(props) {
           ></textarea>
         </div>
       </div>
-      <input type="button" onClick={postServer}></input>
+      <input type="button" onClick={onSubmit} value="Add Server" />
     </form>
   );
 }
