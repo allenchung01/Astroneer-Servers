@@ -48,7 +48,7 @@ function AddServerForm(props) {
           ></textarea>
         </div>
       </div>
-      <input type="submit"></input>
+      <input type="button" onClick={postServer}></input>
     </form>
   );
 }

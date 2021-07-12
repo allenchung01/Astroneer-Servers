@@ -8,6 +8,11 @@ import "../Styles/ServerListing.css";
 import "../Styles/Home.css";
 import "../Styles/AddServerForm.css";
 import "../Styles/Paginate.css";
+import { auth } from "../firebase.js";
+import firebase from "firebase/app";
+
+//const url = "https://astroneer-servers.herokuapp.com";
+//const url = "http://localhost:3001";
 
 function Home() {
   const [serverListings, setServerListings] = useState([]);
@@ -28,8 +33,9 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("https://astroneer-servers.herokuapp.com/api/servers")
+      .get("http://localhost:3001/api/servers")
       .then((response) => {
+        console.log(auth.currentUser);
         setServerListings(response.data);
       })
       .catch((error) => {
@@ -37,7 +43,13 @@ function Home() {
       });
   }, []);
 
-  const postServer = () => {
+  const postServer = async () => {
+    if (!auth.currentUser) {
+      return;
+    }
+    const token = await auth.currentUser.getIdToken();
+
+    console.log(token);
     const listing = {
       server_name: serverName,
       owner_name: ownerName,
@@ -46,7 +58,9 @@ function Home() {
       server_status: true,
     };
     axios
-      .post("https://astroneer-servers.herokuapp.com/api/servers", listing)
+      .post("http://localhost:3001/api/servers", listing, {
+        headers: { authorization: `Bearer ${token}` },
+      })
       .then((result) => {
         setServerListings([...serverListings, listing]);
         console.log(result.data);
@@ -71,6 +85,23 @@ function Home() {
         setOwnerName={setOwnerName}
         setServerUrl={setServerUrl}
         setServerDescription={setServerDescription}
+      />
+      <h1>Log Out</h1>
+      <input
+        type="button"
+        onClick={() => {
+          firebase
+            .auth()
+            .signOut()
+            .then(
+              function () {
+                console.log("signed out");
+              },
+              function (error) {
+                console.log(error);
+              }
+            );
+        }}
       />
     </div>
   );

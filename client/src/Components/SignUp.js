@@ -11,8 +11,10 @@ function SignUp() {
     <div className="log-in-page">
       <form onSubmit={onSubmit}>
         <h1>Sign Up</h1>
+        <input type="email" placeholder="email" />
         <input placeholder="username" />
         <input type="password" placeholder="password" />
+        <input type="password" placeholder="confirm password" />
         <input type="submit" />
       </form>
     </div>
