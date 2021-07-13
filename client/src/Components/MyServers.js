@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import ServerListing from "./ServerListing";
 import { getMyServers } from "../api/servers.js";
+import "../Styles/MyServers.css";
 
 function MyServers(props) {
   const { user } = props;
@@ -17,8 +18,8 @@ function MyServers(props) {
   }, [user]);
 
   return (
-    <div>
-      {user ? <h1 style={{ paddingTop: "100px" }}>{user.email}</h1> : null}
+    <div className="my-servers">
+      <h1>My Servers</h1>
       {myServers.map((server, id) => {
         return <ServerListing listing={server} key={id} />;
       })}

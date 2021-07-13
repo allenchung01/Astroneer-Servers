@@ -1,0 +1,15 @@
+.my-servers {
+  padding-top: 100px;
+  margin: 0 80px 0 80px;
+  min-height: 100vh;
+  background-color: whitesmoke;
+}
+
+.my-servers h1 {
+  font-size: 20pt;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: darkslategrey;
+}
