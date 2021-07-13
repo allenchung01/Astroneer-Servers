@@ -35,6 +35,7 @@ function NavigationBar(props) {
               Sign Up
             </Link>
           )}
+          {user ? <button className="nav-bar-button">Sign Out</button> : null}
           <Link className="nav-bar-title" to="/">
             ASTRONEER SERVERS
           </Link>

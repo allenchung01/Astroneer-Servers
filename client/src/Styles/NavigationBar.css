@@ -10,27 +10,28 @@ nav {
   align-items: center;
   /*background-color: rgb(0, 106, 255);*/
   background-color: white;
-  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.05), 0 0px 16px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 2px 12px 0px rgb(0, 0, 0, 0.04);
   /*letter-spacing: 1px;*/
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-right: 100px;
-  padding-left: 100px;
+  padding-right: 140px;
+  padding-left: 140px;
   /*border-bottom: 1px solid rgb(237, 237, 237);*/
 }
 
 .nav-bar .tabs {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  width: 36%;
 }
 
 .nav-bar .tabs li {
   display: inline;
   color: darkslategrey;
   font-weight: normal;
+  margin-right: 40px;
   font-size: 10pt;
+  white-space: nowrap;
 }
 
 .nav-bar h1 {
@@ -48,8 +49,7 @@ nav {
 .right-items {
   margin-left: auto;
   display: flex;
-  justify-content: space-between;
-  width: 43%;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -68,6 +68,7 @@ nav {
   border-radius: 10px;
   white-space: nowrap;
   margin-top: auto;
+  margin-left: 40px;
 }
 
 .nav-bar-title {
@@ -77,4 +78,5 @@ nav {
   font-size: 20pt;
   display: inline-block;
   white-space: nowrap;
+  margin-left: 40px;
 }

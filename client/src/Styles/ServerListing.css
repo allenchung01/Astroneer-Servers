@@ -6,7 +6,9 @@
   color: darkslategray;
   padding: 20px;
   display: inline-block;
-  border: 1px solid rgb(239, 239, 239);
+  /*border: 1px solid rgb(239, 239, 239);*/
+  /*box-shadow: 0px 2px 12px 0px rgb(240, 240, 240);*/
+  box-shadow: 0px 2px 12px 0px rgb(0, 0, 0, 0.06);
   cursor: pointer;
 }
 

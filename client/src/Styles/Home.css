@@ -8,7 +8,7 @@
   text-align: center;
   background-color: rgb(30, 35, 49);
   min-height: 100vh;
-  background-image: url("Astroneer\ Image.jpeg");
+  background-image: url("astroneer.jpeg");
 }
 
 .main-content h1 {
@@ -24,7 +24,7 @@
   padding-top: 100px;
   margin-left: 80px;
   margin-right: 80px;
-  background-color: whitesmoke;
+  background-color: white;
   /*border: 1px solid rgb(221, 221, 221);*/
   min-height: 100vh;
 }
