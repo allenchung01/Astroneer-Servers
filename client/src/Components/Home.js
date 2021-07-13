@@ -10,9 +10,6 @@ import "../Styles/Paginate.css";
 import { getServers } from "../api/servers.js";
 import { signOutUser } from "../firebase-auth.js";
 
-//const url = "https://astroneer-servers.herokuapp.com";
-//const url = "http://localhost:3001";
-
 function Home() {
   const [serverListings, setServerListings] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);

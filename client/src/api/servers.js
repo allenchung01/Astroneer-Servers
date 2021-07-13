@@ -1,9 +1,12 @@
 import axios from "axios";
 
+//const url = "https://astroneer-servers.herokuapp.com";
+//const url = "http://localhost:3001";
+
 // Retrieves a list of all posted servers.
 export const getServers = (setServerListings) => {
   axios
-    .get("http://localhost:3001/api/servers")
+    .get("https://astroneer-servers.herokuapp.com/api/servers")
     .then((response) => {
       setServerListings(response.data);
     })
@@ -15,7 +18,7 @@ export const getServers = (setServerListings) => {
 // Retrieves a list of all servers posted by the given user
 export const getMyServers = (uid, callback) => {
   axios
-    .get("http://localhost:3001/api/servers".concat(uid))
+    .get("https://astroneer-servers.herokuapp.com/api/servers".concat(uid))
     .then((response) => {
       callback(response.data);
     })
@@ -27,7 +30,7 @@ export const getMyServers = (uid, callback) => {
 // Posts a server listing with the given information, and then executes the callback.
 export const postServer = async (listing, callback) => {
   axios
-    .post("http://localhost:3001/api/servers", listing)
+    .post("https://astroneer-servers.herokuapp.com/api/servers", listing)
     .then((result) => {
       callback();
       console.log(result.data);
