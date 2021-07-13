@@ -10,20 +10,20 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 
-/*const pool = new Pool({
+const pool = new Pool({
   host: "localhost",
   user: "allenchung",
   database: "astroneer_servers",
   password: "password",
   port: 5432,
-});*/
+});
 
-const pool = new Pool({
+/*const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false,
   },
-});
+});*/
 
 app.use(
   cors({
@@ -33,7 +33,7 @@ app.use(
 app.use(express.json());
 app.use(morgan("dev"));
 //
-app.use(express.static(path.join(__dirname, "build")));
+//app.use(express.static(path.join(__dirname, "build")));
 
 app.use("/api/users", require("./routes/users.js"));
 
@@ -64,9 +64,9 @@ app.post("/api/servers", checkIfAuthenticated, (req, res) => {
 });
 
 //
-app.get("*", (req, res) => {
+/*app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
-});
+});*/
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}}...`);
