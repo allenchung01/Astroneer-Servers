@@ -24,8 +24,6 @@ if (!firebase.apps.length) {
 }
 
 firebase.auth().onAuthStateChanged((authUser) => {
-  console.log("auth state did change");
-  console.log(authUser);
   if (authUser) {
     firebase
       .auth()

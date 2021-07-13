@@ -7,8 +7,6 @@ import "../Styles/NavigationBar.css";
 function NavigationBar(props) {
   const { user } = props;
 
-  console.log(props);
-
   return (
     <nav>
       <ul className="nav-bar">
@@ -19,9 +17,11 @@ function NavigationBar(props) {
           <a href="https://astroneer.space/dedicatedserver/">
             <li>OFFICIAL SITE</li>
           </a>
-          <Link to="/servers" user={user}>
-            <li>MY SERVERS</li>
-          </Link>
+          {user ? (
+            <Link to="/servers" user={user}>
+              <li>MY SERVERS</li>
+            </Link>
+          ) : null}
         </div>
         <div className="right-items">
           {user ? <h3>{user.email}</h3> : null}

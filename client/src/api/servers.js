@@ -18,7 +18,11 @@ export const getServers = (setServerListings) => {
 // Retrieves a list of all servers posted by the given user
 export const getMyServers = (uid, callback) => {
   axios
-    .get("http://localhost:3001/api/servers".concat(uid))
+    .get("http://localhost:3001/api/servers", {
+      params: {
+        uid: uid,
+      },
+    })
     .then((response) => {
       callback(response.data);
     })

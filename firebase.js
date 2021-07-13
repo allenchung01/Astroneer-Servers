@@ -26,7 +26,18 @@ const checkIfAuthenticated = async (req, res, next) => {
   }
 };
 
-const createUser = async (req, res) => {
+const checkIfAuthorized = (req, res, next) => {
+  const id = req.params["uid"];
+  console.log(id);
+  console.log(req.body.uid);
+  if (id === req.body.uid) {
+    return next();
+  } else {
+    return res.status(401).send("Unauthorized");
+  }
+};
+
+/*const createUser = async (req, res) => {
   const { email, username, password } = req.body;
   const user = await admin.auth().createUser({
     email,
@@ -34,6 +45,6 @@ const createUser = async (req, res) => {
     password,
   });
   return res.send(user);
-};
+};*/
 
-module.exports = { checkIfAuthenticated, createUser };
+module.exports = { checkIfAuthenticated, checkIfAuthorized };

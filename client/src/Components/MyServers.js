@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 
 import ServerListing from "./ServerListing";
 import { getMyServers } from "../api/servers.js";
@@ -8,20 +9,27 @@ function MyServers(props) {
 
   const [myServers, setMyServers] = useState([]);
 
-  useEffect(
-    getMyServers(user, (data) => {
+  useEffect(() => {
+    getMyServers(user?.uid, (data) => {
       setMyServers(data);
-    }),
-    []
-  );
+    });
+    return () => setMyServers([]);
+  }, [user]);
 
   return (
     <div>
-      {myServers.map((server) => {
-        <ServerListing listing={server} />;
+      {user ? <h1 style={{ paddingTop: "100px" }}>{user.email}</h1> : null}
+      {myServers.map((server, id) => {
+        return <ServerListing listing={server} key={id} />;
       })}
     </div>
   );
 }
 
-export default MyServers;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps)(MyServers);

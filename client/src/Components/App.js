@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 import NavigationBar from "./NavigationBar.js";
-import { auth } from "../firebase.js";
 
 function App(props) {
   return (
