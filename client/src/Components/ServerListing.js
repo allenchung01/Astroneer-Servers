@@ -16,6 +16,7 @@ function ServerListing(props) {
         setPopUpIsVisible(false);
       }}
     >
+      {props.children}
       <div
         className={
           popUpIsVisible

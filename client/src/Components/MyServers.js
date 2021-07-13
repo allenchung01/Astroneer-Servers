@@ -21,7 +21,13 @@ function MyServers(props) {
     <div className="my-servers">
       <h1>My Servers</h1>
       {myServers.map((server, id) => {
-        return <ServerListing listing={server} key={id} />;
+        return (
+          <div key={id}>
+            <ServerListing listing={server}>
+              <button className="delete-button" />
+            </ServerListing>
+          </div>
+        );
       })}
     </div>
   );

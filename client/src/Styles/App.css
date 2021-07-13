@@ -1,0 +1,10 @@
+.credits {
+  background-color: white;
+  color: darkslategrey;
+  font-size: 10px;
+  padding: 10px;
+}
+
+.credits a {
+  color: rgb(120, 91, 216);
+}
