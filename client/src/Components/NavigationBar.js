@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import { connect } from "react-redux";
 
 import "../Styles/NavigationBar.css";
 
 function NavigationBar(props) {
-  const { currentUser } = props;
+  const { user } = props;
+
+  console.log(props);
 
   return (
     <nav>
@@ -16,16 +19,18 @@ function NavigationBar(props) {
           <a href="https://astroneer.space/dedicatedserver/">
             <li>OFFICIAL SITE</li>
           </a>
-          <li>MY SERVERS</li>
+          <Link to="/servers" user={user}>
+            <li>MY SERVERS</li>
+          </Link>
         </div>
         <div className="right-items">
-          {currentUser ? <h3>{currentUser.email}</h3> : null}
-          {currentUser ? null : (
+          {user ? <h3>{user.email}</h3> : null}
+          {user ? null : (
             <Link className="nav-bar-button" to="/log-in">
               Log In
             </Link>
           )}
-          {currentUser ? null : (
+          {user ? null : (
             <Link className="nav-bar-button" to="/sign-up">
               Sign Up
             </Link>
@@ -39,4 +44,10 @@ function NavigationBar(props) {
   );
 }
 
-export default NavigationBar;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps)(NavigationBar);

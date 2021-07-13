@@ -2,6 +2,9 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import axios from "axios";
 
+import store from "./redux/store.js";
+import { updateUser } from "./redux/User/userActions";
+
 const config = {
   apiKey: "AIzaSyDdkkN7jp8H_P2fPLffNRxC3nLnmgYkbwE",
   authDomain: "astroneer-servers.firebaseapp.com",
@@ -22,16 +25,19 @@ if (!firebase.apps.length) {
 
 firebase.auth().onAuthStateChanged((authUser) => {
   console.log("auth state did change");
+  console.log(authUser);
   if (authUser) {
-    return firebase
+    firebase
       .auth()
       .currentUser.getIdToken()
       .then((idToken) => {
         axios.defaults.headers.common["Authorization"] = idToken;
       })
       .catch();
+    store.dispatch(updateUser({ user: authUser }));
   } else {
     axios.defaults.headers.common["Authorization"] = null;
+    store.dispatch(updateUser({ user: null }));
   }
 });
 
