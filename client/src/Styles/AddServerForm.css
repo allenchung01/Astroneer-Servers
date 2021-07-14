@@ -9,7 +9,11 @@ form {
 form h1 {
   font-size: 20pt;
   margin-bottom: 20px;
-  margin-top: 0px;
+  margin-top: 40px;
+}
+
+.add-a-server {
+  margin-top: 40px;
 }
 
 form button {

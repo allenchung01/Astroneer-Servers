@@ -8,7 +8,6 @@ import "../Styles/Home.css";
 import "../Styles/AddServerForm.css";
 import "../Styles/Paginate.css";
 import { getServers } from "../api/servers.js";
-import { signOutUser } from "../firebase-auth.js";
 
 function Home() {
   const [serverListings, setServerListings] = useState([]);
@@ -40,8 +39,6 @@ function Home() {
         serverListings={serverListings}
         setServerListings={setServerListings}
       />
-      <h1>Log Out</h1>
-      <input type="button" onClick={signOutUser} value="Sign Out" />
     </div>
   );
 }

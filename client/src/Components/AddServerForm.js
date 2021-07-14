@@ -26,7 +26,7 @@ function AddServerForm(props) {
 
   return (
     <form>
-      <h1>Add a Server</h1>
+      <h1 className="add-a-server">Add a Server</h1>
       <div className="inputs">
         <div className="left-inputs">
           <input

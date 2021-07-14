@@ -3,6 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import "../Styles/NavigationBar.css";
+import { signOutUser } from "../firebase-auth.js";
 
 function NavigationBar(props) {
   const { user } = props;
@@ -12,14 +13,14 @@ function NavigationBar(props) {
       <ul className="nav-bar">
         <div className="tabs">
           <Link to="/">
-            <li>HOME</li>
+            <li>Home</li>
           </Link>
           <a href="https://astroneer.space/dedicatedserver/">
-            <li>OFFICIAL SITE</li>
+            <li>Official Site</li>
           </a>
           {user ? (
             <Link to="/servers" user={user}>
-              <li>MY SERVERS</li>
+              <li>My Servers</li>
             </Link>
           ) : null}
         </div>
@@ -35,9 +36,13 @@ function NavigationBar(props) {
               Sign Up
             </Link>
           )}
-          {user ? <button className="nav-bar-button">Sign Out</button> : null}
+          {user ? (
+            <button className="nav-bar-button" onClick={signOutUser}>
+              Sign Out
+            </button>
+          ) : null}
           <Link className="nav-bar-title" to="/">
-            ASTRONEER SERVERS
+            Astroneer Servers
           </Link>
         </div>
       </ul>

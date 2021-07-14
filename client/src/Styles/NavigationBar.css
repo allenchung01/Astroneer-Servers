@@ -28,7 +28,7 @@ nav {
 .nav-bar .tabs li {
   display: inline;
   color: darkslategrey;
-  font-weight: normal;
+  font-weight: bold;
   margin-right: 40px;
   font-size: 10pt;
   white-space: nowrap;
@@ -75,7 +75,7 @@ nav {
   color: darkslategrey;
   /*color: white;*/
   font-weight: bold;
-  font-size: 20pt;
+  /*font-size: 10pt;*/
   display: inline-block;
   white-space: nowrap;
   margin-left: 40px;
