@@ -43,4 +43,14 @@ export const postServer = async (listing, callback, onFailure) => {
     });
 };
 
-//export const deleteServer = (listing, )
+// Deletes the server with the specified server id.
+export const deleteServer = (uid, server_id, onSuccess, onFailure) => {
+  axios
+    .delete("http://localhost:3001/api/servers/".concat(server_id))
+    .then((response) => {
+      onSuccess();
+    })
+    .catch((reason) => {
+      onFailure();
+    });
+};

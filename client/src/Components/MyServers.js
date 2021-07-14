@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import ServerListing from "./ServerListing";
 import { getMyServers } from "../api/servers.js";
 import "../Styles/MyServers.css";
+import { deleteServer } from "../api/servers";
 
 function MyServers(props) {
   const { user } = props;
@@ -24,7 +25,7 @@ function MyServers(props) {
         return (
           <div key={id}>
             <ServerListing listing={server}>
-              <button className="delete-button" />
+              <button className="delete-button" onClick={deleteServer} />
             </ServerListing>
           </div>
         );

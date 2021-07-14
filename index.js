@@ -50,7 +50,7 @@ app.get("/api/servers", (req, res) => {
         console.log(error);
       });
   } else {
-    const query = "SELECT * FROM servers;";
+    const query = "SELECT * FROM servers ORDER BY id DESC;";
     pool
       .query(query)
       .then((result) => {
