@@ -18,11 +18,11 @@ const checkIfAuthenticated = async (req, res, next) => {
         next();
       })
       .catch((reason) => {
-        res.status(401).send("Unauthorized");
-        console.log(reason);
+        return res.status(401).send("Unauthorized");
       });
   } catch {
     console.log("Could not find idToken");
+    return res.status(401).send("Unauthorized");
   }
 };
 

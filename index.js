@@ -38,8 +38,23 @@ app.use(morgan("dev"));
 app.use("/api/users", require("./routes/users.js"));
 
 app.get("/api/servers", (req, res) => {
-  const user_uid = req.query.uid;
-  if (user_uid) {
+  const query = "SELECT * FROM servers ORDER BY id DESC;";
+  pool
+    .query(query)
+    .then((result) => {
+      res.status(200).json(result.rows);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+app.get(
+  "/api/servers/:uid",
+  checkIfAuthenticated,
+  checkIfAuthorized,
+  (req, res) => {
+    const user_uid = req.params.uid;
     const query = `SELECT * FROM servers WHERE user_uid = '${user_uid}';`;
     pool
       .query(query)
@@ -49,25 +64,24 @@ app.get("/api/servers", (req, res) => {
       .catch((error) => {
         console.log(error);
       });
-  } else {
-    const query = "SELECT * FROM servers ORDER BY id DESC;";
-    pool
-      .query(query)
-      .then((result) => {
-        res.status(200).json(result.rows);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   }
-});
+);
 
-app.get(
-  "/api/myservers:uid",
+app.delete(
+  "/api/servers/:uid/:server_id",
   checkIfAuthenticated,
   checkIfAuthorized,
   (req, res) => {
-    res.status(200).send("Authorized.");
+    const server_id = req.params.server_id;
+    const query = `DELETE FROM servers WHERE id = '${server_id}';`;
+    pool
+      .query(query)
+      .then((result) => {
+        return res.status(200).send("Success");
+      })
+      .catch((error) => {
+        return res.status(400).send(error);
+      });
   }
 );
 

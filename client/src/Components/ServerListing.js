@@ -5,7 +5,6 @@ import "../Styles/ServerListing.css";
 function ServerListing(props) {
   const { listing } = props;
   const [popUpIsVisible, setPopUpIsVisible] = useState(false);
-  const [mouseOver, setMouseOver] = useState(false);
 
   return (
     <div

@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import "../Styles/NavigationBar.css";
 import { signOutUser } from "../firebase-auth.js";
 
 function NavigationBar(props) {
   const { user } = props;
+
+  const history = useHistory();
+
+  const handleSignOut = () => {
+    signOutUser();
+    history.push("/");
+  };
 
   return (
     <nav>
@@ -37,7 +45,7 @@ function NavigationBar(props) {
             </Link>
           )}
           {user ? (
-            <button className="nav-bar-button" onClick={signOutUser}>
+            <button className="nav-bar-button" onClick={handleSignOut}>
               Sign Out
             </button>
           ) : null}

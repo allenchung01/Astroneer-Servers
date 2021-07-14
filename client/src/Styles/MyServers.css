@@ -31,9 +31,11 @@
   background-position: center;
   margin-top: -5px;
   margin-right: -5px;
+  opacity: 0.5;
 }
 
 .my-servers .delete-button:hover {
-  background-image: url("./Astroneer\ Image.jpeg");
   background-position: center;
+  border: 1px solid red;
+  opacity: 1;
 }

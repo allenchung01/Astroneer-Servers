@@ -18,11 +18,7 @@ export const getServers = (setServerListings) => {
 // Retrieves a list of all servers posted by the given user
 export const getMyServers = (uid, callback) => {
   axios
-    .get("http://localhost:3001/api/servers", {
-      params: {
-        uid: uid,
-      },
-    })
+    .get("http://localhost:3001/api/servers/".concat(uid))
     .then((response) => {
       callback(response.data);
     })
@@ -46,11 +42,11 @@ export const postServer = async (listing, callback, onFailure) => {
 // Deletes the server with the specified server id.
 export const deleteServer = (uid, server_id, onSuccess, onFailure) => {
   axios
-    .delete("http://localhost:3001/api/servers/".concat(server_id))
+    .delete(`http://localhost:3001/api/servers/${uid}/${server_id}`)
     .then((response) => {
-      onSuccess();
+      onSuccess(response);
     })
     .catch((reason) => {
-      onFailure();
+      onFailure(reason);
     });
 };

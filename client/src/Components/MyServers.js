@@ -18,6 +18,21 @@ function MyServers(props) {
     return () => setMyServers([]);
   }, [user]);
 
+  const handleDeleteServer = (server_id) => {
+    deleteServer(
+      user.uid,
+      server_id,
+      (result) => {
+        getMyServers(user?.uid, (data) => {
+          setMyServers(data);
+        });
+      },
+      (reason) => {
+        console.log(reason);
+      }
+    );
+  };
+
   return (
     <div className="my-servers">
       <h1>My Servers</h1>
@@ -25,7 +40,10 @@ function MyServers(props) {
         return (
           <div key={id}>
             <ServerListing listing={server}>
-              <button className="delete-button" onClick={deleteServer} />
+              <button
+                className="delete-button"
+                onClick={() => handleDeleteServer(server.id)}
+              />
             </ServerListing>
           </div>
         );
