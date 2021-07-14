@@ -109,3 +109,26 @@ textarea input::placeholder {
 .error-message {
   color: tomato;
 }
+
+form input[type="button"]:hover {
+  animation-name: formInputButtonHover;
+  animation-duration: 1.2s;
+}
+
+form input[type="button"]:active {
+  margin-top: 12px;
+  box-shadow: none;
+  background-color: rgb(123, 94, 220);
+}
+
+@keyframes formInputButtonHover {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
