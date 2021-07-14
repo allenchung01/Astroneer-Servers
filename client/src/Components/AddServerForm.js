@@ -10,6 +10,7 @@ function AddServerForm(props) {
   const [ownerName, setOwnerName] = useState("");
   const [serverUrl, setServerUrl] = useState("");
   const [serverDescription, setServerDescription] = useState("");
+  const [error, setError] = useState("");
 
   const onSubmit = () => {
     const listing = {
@@ -19,9 +20,16 @@ function AddServerForm(props) {
       server_description: serverDescription,
       server_status: true,
     };
-    postServer(listing, () => {
-      setServerListings([...serverListings, listing]);
-    });
+    postServer(
+      listing,
+      () => {
+        setServerListings([...serverListings, listing]);
+        setError("");
+      },
+      () => {
+        setError("Failed to post server.");
+      }
+    );
   };
 
   return (
@@ -61,6 +69,7 @@ function AddServerForm(props) {
           ></textarea>
         </div>
       </div>
+      {error ? <h3 className="error-message">{error}</h3> : null}
       <input type="button" onClick={onSubmit} value="Add Server" />
     </form>
   );

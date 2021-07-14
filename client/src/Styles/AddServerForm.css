@@ -105,3 +105,7 @@ textarea input::placeholder {
 :-o-input-placeholder {
   color: rgb(0, 0, 0, 0.4);
 }
+
+.error-message {
+  color: tomato;
+}

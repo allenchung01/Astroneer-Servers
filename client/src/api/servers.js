@@ -32,15 +32,14 @@ export const getMyServers = (uid, callback) => {
 };
 
 // Posts a server listing with the given information, and then executes the callback.
-export const postServer = async (listing, callback) => {
+export const postServer = async (listing, callback, onFailure) => {
   axios
     .post("http://localhost:3001/api/servers", listing)
     .then((result) => {
       callback();
-      console.log(result.data);
     })
     .catch((error) => {
-      console.log(error);
+      onFailure();
     });
 };
 
