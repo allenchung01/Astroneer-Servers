@@ -38,14 +38,12 @@ function MyServers(props) {
       <h1>My Servers</h1>
       {myServers.map((server, id) => {
         return (
-          <div key={id}>
-            <ServerListing listing={server}>
-              <button
-                className="delete-button"
-                onClick={() => handleDeleteServer(server.id)}
-              />
-            </ServerListing>
-          </div>
+          <ServerListing listing={server} key={id}>
+            <button
+              className="delete-button"
+              onClick={() => handleDeleteServer(server.id)}
+            />
+          </ServerListing>
         );
       })}
     </div>
