@@ -34,6 +34,12 @@ function ServerListing(props) {
       </div>
       <h3>Owner: {listing.owner_name}</h3>
       <h3>Server URL: {listing.server_url}</h3>
+      {listing.server_password ? (
+        <h3>Password: {listing.server_password}</h3>
+      ) : null}
+      <h3>Region: {listing.server_region}</h3>
+      <h3>Server Type: {listing.server_type}</h3>
+      <h3>Status: {listing.server_status ? "Online" : "Offline"}</h3>
     </div>
   );
 }

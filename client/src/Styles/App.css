@@ -8,3 +8,7 @@
 .credits a {
   color: rgb(120, 91, 216);
 }
+
+input {
+  -webkit-appearance: none;
+}
