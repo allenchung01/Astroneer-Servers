@@ -71,6 +71,14 @@ nav {
   margin-left: 40px;
 }
 
+.right-items .nav-bar-button:hover {
+  color: rgb(82, 65, 137);
+}
+
+.right-items .nav-bar-button:active {
+  background-color: rgb(253, 253, 253);
+}
+
 .nav-bar-title {
   color: darkslategrey;
   /*color: white;*/

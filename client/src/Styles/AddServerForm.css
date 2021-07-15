@@ -29,7 +29,8 @@ form button {
 
 form input {
   display: block;
-  margin: 10px auto 10px auto;
+  text-align: center;
+  margin: 0px auto 10px auto;
   padding: 14px;
   border-radius: 10px;
   border: 1px solid rgb(0, 0, 0, 0.04);
@@ -47,7 +48,8 @@ form input[type="button"] {
   border: 0px;
   padding: 14px 40px 14px 40px;
   background-color: rgb(128, 97, 228);
-  box-shadow: 0px 4px 4px 0px rgb(0, 0, 0, 0.15);
+  /*box-shadow: 0px 4px 4px 0px rgb(0, 0, 0, 0.15);*/
+  box-shadow: 0px 4px 4px 0px rgb(128, 97, 228, 0.25);
 }
 
 input:focus,
@@ -60,20 +62,41 @@ textarea:focus {
 }*/
 
 .inputs {
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
+  /*display: inline-block;*/
+  /*justify-content: space-between;*/
+  /*justify-content: center;*/
+  background-color: white;
+  /*margin-left: 340px;
+  margin-right: 340px;*/
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 2px 4px 16px 0px rgb(0, 0, 0, 0.05);
 }
 
 .left-inputs {
   display: inline-block;
-  margin-right: 10px;
+  padding-right: 40px;
+  width: 50%;
+  border-right: 1px solid whitesmoke;
+}
+
+.left-inputs h3 {
+  color: darkslategrey;
+  font-size: 10px;
+  text-align: left;
 }
 
 .right-inputs {
   display: inline-flex;
-  align-items: stretch;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  flex-direction: column;
+  /*display: inline-block;*/
+  /*align-items: stretch;*/
+  width: 50%;
+  margin-left: 40px;
+  min-width: 240px;
 }
 
 .right-inputs textarea {
@@ -81,12 +104,14 @@ textarea:focus {
 }
 
 textarea {
-  border: 1px solid rgb(0, 0, 0, 0.04);
-  border-radius: 10px;
+  display: block;
+  border: none;
   resize: none;
   font-size: 10px;
   color: darkslategrey;
-  padding: 14px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 textarea input::placeholder {
@@ -116,7 +141,8 @@ form input[type="button"]:hover {
 }
 
 form input[type="button"]:active {
-  margin-top: 12px;
+  position: relative;
+  top: 1px;
   box-shadow: none;
   background-color: rgb(123, 94, 220);
 }
@@ -131,4 +157,20 @@ form input[type="button"]:active {
   100% {
     transform: scale(1);
   }
+}
+
+#server-name {
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0px;
+  overflow: auto;
+}
+
+.right-inputs h2 {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  color: darkslategrey;
+  text-align: center;
 }

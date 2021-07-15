@@ -7,4 +7,4 @@ CREATE TABLE servers (
     server_url VARCHAR(50) NOT NULL CHECK (server_url <> '')
 );
 
-ALTER TABLE servers ADD COLUMN user_uid VARCHAR(250);
+ALTER TABLE servers ADD COLUMN user_uid VARCHAR(255) NOT NULL;

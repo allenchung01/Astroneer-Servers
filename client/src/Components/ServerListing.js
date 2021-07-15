@@ -24,6 +24,18 @@ function ServerListing(props) {
             : "popup-description-hidden"
         }
       >
+        <h3>
+          Status:{" "}
+          <b>
+            <span
+              className={
+                listing.server_status ? "online-label" : "offline-label"
+              }
+            >
+              {listing.server_status ? "Online" : "Offline"}
+            </span>
+          </b>
+        </h3>
         <p>{listing.server_description}</p>
       </div>
       <div className="server-heading">
@@ -32,14 +44,26 @@ function ServerListing(props) {
         ></span>
         <h2>{listing.server_name}</h2>
       </div>
-      <h3>Owner: {listing.owner_name}</h3>
-      <h3>Server URL: {listing.server_url}</h3>
+      <h3>
+        Owner: <b>{listing.owner_name}</b>
+      </h3>
+      <h3>
+        Server URL: <b>{listing.server_url}</b>
+      </h3>
       {listing.server_password ? (
-        <h3>Password: {listing.server_password}</h3>
+        <h3>
+          Password: <b>{listing.server_password}</b>
+        </h3>
       ) : null}
-      <h3>Region: {listing.server_region}</h3>
-      <h3>Server Type: {listing.server_type}</h3>
-      <h3>Status: {listing.server_status ? "Online" : "Offline"}</h3>
+      <h3>
+        Game Mode: <b>{listing.server_game_mode}</b>
+      </h3>
+      <h3>
+        Region: <b>{listing.server_region}</b>
+      </h3>
+      <h3>
+        Server Type: <b>{listing.server_type}</b>
+      </h3>
     </div>
   );
 }
