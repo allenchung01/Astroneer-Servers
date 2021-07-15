@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 
 import "../Styles/NavigationBar.css";
 import { signOutUser } from "../firebase-auth.js";
+import HamburgerMenu from "./HamburgerMenu";
 
 function NavigationBar(props) {
   const { user } = props;
@@ -19,6 +20,19 @@ function NavigationBar(props) {
   return (
     <nav>
       <ul className="nav-bar">
+        <HamburgerMenu>
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+          <a href="https://astroneer.space/dedicatedserver/">
+            <li>Official Site</li>
+          </a>
+          {user ? (
+            <Link to="/servers" user={user}>
+              <li>My Servers</li>
+            </Link>
+          ) : null}
+        </HamburgerMenu>
         <div className="tabs">
           <Link to="/">
             <li>Home</li>

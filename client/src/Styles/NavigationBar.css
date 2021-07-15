@@ -25,7 +25,7 @@ nav {
   align-items: center;
 }
 
-.nav-bar .tabs li {
+.nav-bar li {
   display: inline;
   color: darkslategrey;
   font-weight: bold;
@@ -79,4 +79,20 @@ nav {
   display: inline-block;
   white-space: nowrap;
   margin-left: 40px;
+}
+
+@media screen and (max-width: 900px) {
+  .nav-bar {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+  .nav-bar .tabs li {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nav-bar-title {
+    display: none;
+  }
 }

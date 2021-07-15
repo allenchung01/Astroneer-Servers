@@ -109,3 +109,9 @@ h3 {
     transform: scale(1);
   }
 }
+
+@media screen and (max-width: 500px) {
+  .server-listing {
+    width: 30%;
+  }
+}

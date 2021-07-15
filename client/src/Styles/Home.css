@@ -38,3 +38,16 @@ input[type="button"] {
   font-size: 8px;
   color: darkslategrey;
 }
+
+@media screen and (max-width: 900px) {
+  .main-content {
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .main-content {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
