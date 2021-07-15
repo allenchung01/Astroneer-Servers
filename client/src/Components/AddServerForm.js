@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 
 import { postServer } from "../api/servers";
+import InputRequired from "./InputRequired";
 import "../Styles/AddServerForm.css";
 
 function AddServerForm(props) {
@@ -19,6 +21,7 @@ function AddServerForm(props) {
   const onSubmit = () => {
     const listing = {
       server_name: serverName,
+      owner_name: props.user.email,
       server_url: serverUrl,
       server_password: serverPassword,
       server_type: serverType,
@@ -45,15 +48,19 @@ function AddServerForm(props) {
       <h1 className="add-a-server">Add a Server</h1>
       <div className="inputs">
         <div className="left-inputs">
-          <input
-            onChange={(event) => {
-              setServerName(event.target.value);
-            }}
-            placeholder="Server Name"
-            id="server-name"
-            required
-          ></input>
-          <h3>Server Url</h3>
+          <InputRequired input={serverName}>
+            <input
+              onChange={(event) => {
+                setServerName(event.target.value);
+              }}
+              placeholder="Server Name"
+              id="server-name"
+              required
+            ></input>
+          </InputRequired>
+          <InputRequired input={serverUrl}>
+            <h3>Server Url</h3>
+          </InputRequired>
           <input
             onChange={(event) => {
               setServerUrl(event.target.value);
@@ -69,7 +76,9 @@ function AddServerForm(props) {
             placeholder="password"
             required
           ></input>
-          <h3>Server Type</h3>
+          <InputRequired input={serverType}>
+            <h3>Server Type</h3>
+          </InputRequired>
           <input
             onChange={(event) => {
               setServerType(event.target.value);
@@ -77,7 +86,9 @@ function AddServerForm(props) {
             placeholder="Nitrado"
             required
           ></input>
-          <h3>Server Region</h3>
+          <InputRequired input={serverRegion}>
+            <h3>Server Region</h3>
+          </InputRequired>
           <input
             onChange={(event) => {
               setServerRegion(event.target.value);
@@ -85,7 +96,9 @@ function AddServerForm(props) {
             placeholder="NA East"
             required
           ></input>
-          <h3>Game Mode</h3>
+          <InputRequired input={serverGameMode}>
+            <h3>Game Mode</h3>
+          </InputRequired>
           <input
             onChange={(event) => {
               setServerGameMode(event.target.value);
@@ -119,4 +132,10 @@ function AddServerForm(props) {
   );
 }
 
-export default AddServerForm;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps)(AddServerForm);

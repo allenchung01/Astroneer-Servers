@@ -36,7 +36,7 @@ function ServerListing(props) {
             </span>
           </b>
         </h3>
-        <p>{listing.server_description}</p>
+        <p className="server-description">{listing.server_description}</p>
       </div>
       <div className="server-heading">
         <span

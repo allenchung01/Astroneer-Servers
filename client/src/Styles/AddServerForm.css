@@ -31,10 +31,13 @@ form input {
   display: block;
   text-align: center;
   margin: 0px auto 10px auto;
+  font-weight: bold;
   padding: 14px;
   border-radius: 10px;
-  border: 1px solid rgb(0, 0, 0, 0.04);
+  border: none;
+  /*border: 1px solid rgb(0, 0, 0, 0.04);*/
   font-size: 10px;
+  border-bottom: 1px solid whitesmoke;
   color: darkslategrey;
 }
 
@@ -84,6 +87,7 @@ textarea:focus {
 }
 
 .left-inputs h3 {
+  display: inline;
   color: darkslategrey;
   font-size: 10px;
   text-align: left;
@@ -160,7 +164,9 @@ form input[type="button"]:active {
 }
 
 #server-name {
+  display: inline;
   border: none;
+  margin-bottom: 20px;
   font-size: 20px;
   font-weight: bold;
   padding: 0px;

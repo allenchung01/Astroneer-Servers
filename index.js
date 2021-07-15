@@ -86,9 +86,19 @@ app.delete(
 );
 
 app.post("/api/servers", checkIfAuthenticated, (req, res) => {
-  const { server_name, owner_name, server_url, server_description } = req.body;
+  const {
+    server_name,
+    owner_name,
+    server_url,
+    server_description,
+    server_game_mode,
+    server_region,
+    server_type,
+    server_password,
+  } = req.body;
+  console.log(req.body);
   const user_uid = req.body.uid;
-  const query = `INSERT INTO servers (server_name, owner_name, server_url, server_description, server_status, user_uid) VALUES ('${server_name}', '${owner_name}', '${server_url}', '${server_description}', true, '${user_uid}');`;
+  const query = `INSERT INTO servers (server_name, owner_name, server_url, server_description, server_status, user_uid, server_game_mode, server_region, server_type, server_password) VALUES ('${server_name}', '${owner_name}', '${server_url}', '${server_description}', true, '${user_uid}', '${server_game_mode}', '${server_region}', '${server_type}', '${server_password}');`;
   pool
     .query(query)
     .then((result) => {
