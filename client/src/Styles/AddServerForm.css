@@ -145,6 +145,8 @@ textarea input::placeholder {
 
 .error-message {
   color: tomato;
+  margin-top: 20px;
+  text-align: center;
 }
 
 form input[type="button"]:hover {

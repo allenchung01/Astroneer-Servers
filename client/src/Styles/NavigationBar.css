@@ -67,7 +67,7 @@ nav {
   border: 1px solid whitesmoke;
   border-radius: 10px;
   white-space: nowrap;
-  margin-top: auto;
+  /*margin-top: auto;*/
   margin-left: 40px;
 }
 
@@ -89,18 +89,24 @@ nav {
   margin-left: 40px;
 }
 
+#profile-info {
+  display: inline-flex;
+  align-items: center;
+}
+
 #astronaut {
   display: inline-block;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   margin-right: 20px;
-  background-image: url("./astronaut.png");
+  background-image: url("./astronaut (1).png");
   background-size: contain;
 }
 
 #email {
   display: inline-block;
-  vertical-align: top;
+  margin: 0px;
+  padding: 0px;
 }
 
 @media screen and (max-width: 900px) {

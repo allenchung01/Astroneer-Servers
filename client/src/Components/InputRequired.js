@@ -7,8 +7,8 @@ export default function InputRequired(props) {
 
   return (
     <div>
-      {input ? null : <span id="input-required-star">* </span>}
       {props.children}
+      {input ? null : <span id="input-required-star"> *</span>}
     </div>
   );
 }

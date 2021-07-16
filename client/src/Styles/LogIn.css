@@ -7,6 +7,14 @@
 }
 
 .log-in-page form {
+  display: inline-flex;
+  flex-direction: column;
+  background-color: white;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 2px 4px 16px 0px rgb(0, 0, 0, 0.05);
   padding-top: 86px;
   margin: auto;
 }

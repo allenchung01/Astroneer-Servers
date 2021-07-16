@@ -18,10 +18,33 @@ function AddServerForm(props) {
   const [serverRules, setServerRules] = useState("");
   const [error, setError] = useState("");
 
+  const areRequiredFieldsFilled = () => {
+    if (!serverName) {
+      setError("Please enter a server name.");
+      return false;
+    } else if (!serverUrl) {
+      setError("Please enter a server url.");
+      return false;
+    } else if (!serverType) {
+      setError("Please enter a server type.");
+      return false;
+    } else if (!serverRegion) {
+      setError("Please enter a server region.");
+      return false;
+    } else if (!serverGameMode) {
+      setError("Please enter a server game mode.");
+      return false;
+    }
+    return true;
+  };
+
   const onSubmit = () => {
+    if (!areRequiredFieldsFilled()) {
+      return;
+    }
     const listing = {
       server_name: serverName,
-      owner_name: props.user.email,
+      owner_name: props.user ? props.user.email : null,
       server_url: serverUrl,
       server_password: serverPassword,
       server_type: serverType,
@@ -48,16 +71,14 @@ function AddServerForm(props) {
       <h1 className="add-a-server">Add a Server</h1>
       <div className="inputs">
         <div className="left-inputs">
-          <InputRequired input={serverName}>
-            <input
-              onChange={(event) => {
-                setServerName(event.target.value);
-              }}
-              placeholder="Server Name"
-              id="server-name"
-              required
-            ></input>
-          </InputRequired>
+          <input
+            onChange={(event) => {
+              setServerName(event.target.value);
+            }}
+            placeholder="Server Name"
+            id="server-name"
+            required
+          ></input>
           <InputRequired input={serverUrl}>
             <h3>Server Url</h3>
           </InputRequired>
@@ -125,9 +146,9 @@ function AddServerForm(props) {
             required
           ></textarea>
         </div>
-        {error ? <h3 className="error-message">{error}</h3> : null}
         <input type="button" onClick={onSubmit} value="Add Server" />
       </div>
+      {error ? <h3 className="error-message">{error}</h3> : null}
     </form>
   );
 }

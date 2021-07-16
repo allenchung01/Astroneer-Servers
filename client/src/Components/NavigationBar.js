@@ -48,7 +48,7 @@ function NavigationBar(props) {
         </div>
         <div className="right-items">
           {user ? (
-            <div>
+            <div id="profile-info">
               <div id="astronaut" />
               <h3 id="email">{user.email}</h3>
             </div>
@@ -68,9 +68,6 @@ function NavigationBar(props) {
               Sign Out
             </button>
           ) : null}
-          <Link className="nav-bar-title" to="/">
-            Astroneer Servers
-          </Link>
         </div>
       </ul>
     </nav>
