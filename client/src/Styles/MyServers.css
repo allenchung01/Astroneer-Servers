@@ -16,6 +16,7 @@
 
 .my-servers .delete-button {
   position: absolute;
+  z-index: 1;
   display: inline-block;
   right: 0;
   top: 0;

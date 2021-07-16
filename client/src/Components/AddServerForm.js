@@ -125,9 +125,9 @@ function AddServerForm(props) {
             required
           ></textarea>
         </div>
+        {error ? <h3 className="error-message">{error}</h3> : null}
+        <input type="button" onClick={onSubmit} value="Add Server" />
       </div>
-      {error ? <h3 className="error-message">{error}</h3> : null}
-      <input type="button" onClick={onSubmit} value="Add Server" />
     </form>
   );
 }
