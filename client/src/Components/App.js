@@ -21,6 +21,16 @@ function App(props) {
           www.flaticon.com
         </a>
       </div>
+      <div className="credits">
+        Icons made by{" "}
+        <a href="" title="dDara">
+          dDara
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
     </div>
   );
 }

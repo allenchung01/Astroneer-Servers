@@ -47,7 +47,12 @@ function NavigationBar(props) {
           ) : null}
         </div>
         <div className="right-items">
-          {user ? <h3>{user.email}</h3> : null}
+          {user ? (
+            <div>
+              <div id="astronaut" />
+              <h3 id="email">{user.email}</h3>
+            </div>
+          ) : null}
           {user ? null : (
             <Link className="nav-bar-button" to="/log-in">
               Log In

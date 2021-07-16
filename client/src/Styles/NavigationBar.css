@@ -89,6 +89,20 @@ nav {
   margin-left: 40px;
 }
 
+#astronaut {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin-right: 20px;
+  background-image: url("./astronaut.png");
+  background-size: contain;
+}
+
+#email {
+  display: inline-block;
+  vertical-align: top;
+}
+
 @media screen and (max-width: 900px) {
   .nav-bar {
     padding-right: 60px;
