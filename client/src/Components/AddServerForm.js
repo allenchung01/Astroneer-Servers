@@ -57,7 +57,7 @@ function AddServerForm(props) {
     postServer(
       listing,
       () => {
-        setServerListings([...serverListings, listing]);
+        setServerListings([listing, ...serverListings]);
         setError("");
       },
       () => {

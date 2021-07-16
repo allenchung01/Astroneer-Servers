@@ -33,7 +33,7 @@ function Home() {
   return (
     <div className="main-content">
       <h1>Astroneer Servers</h1>
-      {currentPageListings}
+      <div className="server-list">{currentPageListings}</div>
       <Paginate pageCount={pageCount} changePage={changePage} />
       <AddServerForm
         serverListings={serverListings}
