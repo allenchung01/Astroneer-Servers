@@ -32,13 +32,21 @@ function Home() {
 
   return (
     <div className="main-content">
-      <h1>Astroneer Servers</h1>
-      <div className="server-list">{currentPageListings}</div>
-      <Paginate pageCount={pageCount} changePage={changePage} />
-      <AddServerForm
-        serverListings={serverListings}
-        setServerListings={setServerListings}
-      />
+      <div className="server-list">
+        <h2 id="welcome-message">
+          <span id="welcome">Welcome!</span> Below you can find servers to join.
+          Click on a server for more information.
+        </h2>
+        <h1>Astroneer Servers</h1>
+        {currentPageListings}
+        <Paginate pageCount={pageCount} changePage={changePage} />
+      </div>
+      <div className="server-form-section">
+        <AddServerForm
+          serverListings={serverListings}
+          setServerListings={setServerListings}
+        />
+      </div>
     </div>
   );
 }
