@@ -8,6 +8,8 @@ import "../Styles/Home.css";
 import "../Styles/AddServerForm.css";
 import "../Styles/Paginate.css";
 import { getServers } from "../api/servers.js";
+import store from "../redux/store.js";
+import { updateTab } from "../redux/User/userActions";
 
 function Home() {
   const [serverListings, setServerListings] = useState([]);
@@ -23,6 +25,7 @@ function Home() {
   const pageCount = Math.ceil(serverListings.length / listingsPerPage);
 
   useEffect(() => {
+    store.dispatch(updateTab({ tab: "Home" }));
     getServers(setServerListings);
   }, []);
 
@@ -38,7 +41,7 @@ function Home() {
           Click on a server for more information.
         </h2>
         <h1>Astroneer Servers</h1>
-        {currentPageListings}
+        <div id="server-grid">{currentPageListings}</div>
         <Paginate pageCount={pageCount} changePage={changePage} />
       </div>
       <div className="server-form-section">

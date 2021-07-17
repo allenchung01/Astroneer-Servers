@@ -17,28 +17,39 @@
   font-weight: bold;
 }
 
+@font-face {
+  font-family: Jost-Italic;
+  src: url("../Font/Jost-Italic-VariableFont_wght.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Jost-Italic-Bold;
+  src: url("../Font/Jost-Italic-VariableFont_wght.ttf");
+  font-weight: bold;
+}
+
 .App {
   text-align: center;
-  background-color: white;
+  background-color: rgb(252, 252, 252);
   min-height: 100vh;
   /*background-image: url("astroneer.jpeg");*/
 }
 
 .main-content h1 {
-  background-color: blue;
   font-size: 22pt;
   font-weight: bold;
   text-align: left;
   margin-top: 40px;
   margin-bottom: 10px;
-  margin-left: 20px;
+  margin-left: 40px;
   margin-right: 20px;
   color: darkslategrey;
 }
 
 .main-content {
-  background-color: blue;
   padding-top: 76px;
+  padding-bottom: 40px;
   margin-left: 80px;
   margin-right: 80px;
   /*background-color: rgb(253, 253, 253);*/
@@ -46,10 +57,8 @@
 }
 
 .server-list {
-  background-color: red;
   display: inline-block;
-  width: 50%;
-  text-align: left;
+  width: 60%;
   margin: 0px;
   padding: 0px;
 }
@@ -78,15 +87,17 @@ input[type="button"] {
 }
 
 #welcome-message {
+  font-family: Jost;
+  text-align: left;
   font-size: 20px;
-  color: rgb(255, 255, 255, 0.9);
-  /*color: rgb(109, 133, 133);*/
+  /*color: rgb(255, 255, 255, 0.9);*/
+  color: darkslategrey;
   margin-left: 40px;
   margin-right: 40px;
   margin-top: 40px;
-  text-shadow: 2px 4px 6px rgb(0, 0, 0, 0.04);
-  background-color: rgb(47, 79, 79, 0.9);
-  box-shadow: 2px 4px 16px 0px rgb(0, 0, 0, 0.05);
+  /*text-shadow: 2px 4px 6px rgb(0, 0, 0, 0.04);*/
+  /*background-color: rgb(47, 79, 79, 0.9);*/
+  /*box-shadow: 2px 4px 16px 0px rgb(0, 0, 0, 0.05);*/
   padding: 16px;
   animation-name: onLoadAnimation;
   animation-duration: 1.2s;
@@ -106,7 +117,7 @@ input[type="button"] {
 }
 
 #welcome {
-  font-family: Jost-Bold;
+  font-family: Jost-Italic-Bold;
 }
 
 .server-form-section {
@@ -114,5 +125,12 @@ input[type="button"] {
   margin: 0px;
   vertical-align: top;
   padding: 0px;
-  width: 50%;
+  width: 40%;
+}
+
+#server-grid {
+  padding-left: 20px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }

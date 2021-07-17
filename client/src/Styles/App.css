@@ -1,4 +1,5 @@
 .credits {
+  display: inline-block;
   background-color: white;
   color: darkslategrey;
   font-size: 10px;

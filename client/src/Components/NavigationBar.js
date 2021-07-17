@@ -8,7 +8,7 @@ import { signOutUser } from "../firebase-auth.js";
 import HamburgerMenu from "./HamburgerMenu";
 
 function NavigationBar(props) {
-  const { user } = props;
+  const { user, tab } = props;
 
   const history = useHistory();
 
@@ -17,32 +17,47 @@ function NavigationBar(props) {
     history.push("/");
   };
 
+  const isTabSelected = (tabName) => {
+    if (tab === tabName) {
+      return true;
+    }
+    return false;
+  };
+
   return (
     <nav>
       <ul className="nav-bar">
         <HamburgerMenu>
           <Link to="/">
-            <li>Home</li>
+            <li className={isTabSelected("Home") ? "tab-selected" : null}>
+              Home
+            </li>
           </Link>
           <a href="https://astroneer.space/dedicatedserver/">
             <li>Official Site</li>
           </a>
           {user ? (
             <Link to="/servers" user={user}>
-              <li>My Servers</li>
+              <li className={isTabSelected("Servers") ? "tab-selected" : null}>
+                My Servers
+              </li>
             </Link>
           ) : null}
         </HamburgerMenu>
         <div className="tabs">
           <Link to="/">
-            <li>Home</li>
+            <li className={isTabSelected("Home") ? "tab-selected" : null}>
+              Home
+            </li>
           </Link>
           <a href="https://astroneer.space/dedicatedserver/">
             <li>Official Site</li>
           </a>
           {user ? (
             <Link to="/servers" user={user}>
-              <li>My Servers</li>
+              <li className={isTabSelected("Servers") ? "tab-selected" : null}>
+                My Servers
+              </li>
             </Link>
           ) : null}
         </div>
@@ -77,6 +92,7 @@ function NavigationBar(props) {
 const mapStateToProps = (state) => {
   return {
     user: state.user,
+    tab: state.tab,
   };
 };
 

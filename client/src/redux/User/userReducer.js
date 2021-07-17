@@ -1,7 +1,9 @@
 import { UPDATE_USER } from "./userTypes";
+import { UPDATE_TAB } from "./userTypes";
 
 const INITIAL_STATE = {
   user: null,
+  tab: "Home",
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -10,6 +12,12 @@ const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         user: action.payload.user,
+      };
+    case UPDATE_TAB:
+      console.log(action.payload.tab);
+      return {
+        ...state,
+        tab: action.payload.tab,
       };
     default:
       return state;

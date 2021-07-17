@@ -60,7 +60,7 @@ nav {
 .right-items .nav-bar-button {
   display: inline-block;
   background-color: white;
-  color: rgb(120, 91, 216);
+  color: darkslategrey;
   padding: 10px;
   font-size: 10px;
   border: none;
@@ -104,6 +104,7 @@ nav {
 }
 
 #email {
+  font-family: Jost-Bold;
   display: inline-block;
   margin: 0px;
   padding: 0px;
@@ -117,6 +118,10 @@ nav {
   .nav-bar .tabs li {
     display: none;
   }
+}
+
+.tab-selected {
+  font-family: Jost-Bold;
 }
 
 @media screen and (max-width: 500px) {

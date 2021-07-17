@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import { loginUser } from "../firebase-auth.js";
 import "../Styles/LogIn.css";
+import store from "../redux/store.js";
+import { updateTab } from "../redux/User/userActions";
 
 function LogIn() {
   const [email, setEmail] = useState("");
@@ -10,6 +12,10 @@ function LogIn() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const history = useHistory();
+
+  useEffect(() => {
+    store.dispatch(updateTab({ tab: "LogIn" }));
+  }, []);
 
   const onSubmit = () => {
     loginUser(email, password, (error) => {

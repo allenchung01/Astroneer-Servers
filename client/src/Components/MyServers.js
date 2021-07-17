@@ -5,11 +5,17 @@ import ServerListing from "./ServerListing";
 import { getMyServers } from "../api/servers.js";
 import "../Styles/MyServers.css";
 import { deleteServer } from "../api/servers";
+import store from "../redux/store.js";
+import { updateTab } from "../redux/User/userActions";
 
 function MyServers(props) {
   const { user } = props;
 
   const [myServers, setMyServers] = useState([]);
+
+  useEffect(() => {
+    store.dispatch(updateTab({ tab: "Servers" }));
+  }, []);
 
   useEffect(() => {
     getMyServers(user?.uid, (data) => {
