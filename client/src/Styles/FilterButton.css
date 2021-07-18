@@ -1,0 +1,14 @@
+.filter-button-div {
+  margin-right: 120px;
+}
+
+.filter-button {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-image: url("filter.png");
+  background-size: contain;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+}

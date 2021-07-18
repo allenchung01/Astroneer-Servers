@@ -10,12 +10,13 @@ import "../Styles/Paginate.css";
 import { getServers } from "../api/servers.js";
 import store from "../redux/store.js";
 import { updateTab } from "../redux/User/userActions";
+import FilterButton from "./FilterButton.js";
 
 function Home() {
   const [serverListings, setServerListings] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
 
-  const listingsPerPage = 12;
+  const listingsPerPage = 9;
   const listingsVisited = pageNumber * listingsPerPage;
   const currentPageListings = serverListings
     .slice(listingsVisited, listingsVisited + listingsPerPage)
@@ -40,7 +41,10 @@ function Home() {
           <span id="welcome">Welcome!</span> Below you can find servers to join.
           Click on a server for more information.
         </h2>
-        <h1>Astroneer Servers</h1>
+        <div id="astroneer-servers-header">
+          <h1>Astroneer Servers</h1>
+          <FilterButton />
+        </div>
         <div id="server-grid">{currentPageListings}</div>
         <Paginate pageCount={pageCount} changePage={changePage} />
       </div>

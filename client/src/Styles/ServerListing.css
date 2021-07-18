@@ -5,7 +5,7 @@
   margin: 10px 20px 10px 0px;
   border-radius: 20px;
   color: darkslategrey;
-  width: 146px;
+  width: 160px;
   padding: 20px;
   display: inline-block;
   /*border: 1px solid rgb(239, 239, 239);*/
@@ -25,15 +25,15 @@ h2 {
   display: inline-block;
   padding: 0px;
   font-weight: bold;
-  font-size: 13pt;
+  font-size: 14pt;
 }
 
 h3 {
   margin-top: 7px;
   font-weight: lighter;
-  font-size: 8pt;
+  font-size: 9pt;
   text-align: left;
-  color: rgb(72, 90, 90);
+  color: rgb(111, 128, 128);
 }
 
 .info {
@@ -81,7 +81,7 @@ h3 {
   padding: 10px;
   margin-top: -50px;
   color: darkslategrey;
-  font-size: 10px;
+  font-size: 9pt;
   left: 50%;
   transform: translate(-50%, 0);
 }
@@ -102,7 +102,7 @@ h3 {
   width: 146px;
   bottom: 100%;
   color: white;
-  font-size: 10px;
+  font-size: 9pt;
 }
 
 .popup-description-visible::after {
@@ -130,7 +130,7 @@ h3 {
 }
 
 .server-description {
-  margin-top: 10px;
+  margin-top: 9pt;
 }
 
 #online-status {
@@ -149,6 +149,10 @@ h3 {
   }
 }
 
+.info {
+  color: darkslategrey;
+}
+
 @keyframes onLoadAnimation {
   0% {
     transform: scale(0);
@@ -158,11 +162,5 @@ h3 {
   }
   100% {
     transform: scale(1);
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .server-listing {
-    width: 30%;
   }
 }

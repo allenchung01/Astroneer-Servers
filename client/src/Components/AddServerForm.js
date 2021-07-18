@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import { postServer } from "../api/servers";
 import InputRequired from "./InputRequired";
+import ToggleGameMode from "./ToggleGameMode";
+import ToggleServerType from "./ToggleServerType";
 import "../Styles/AddServerForm.css";
 
 function AddServerForm(props) {
@@ -10,13 +12,21 @@ function AddServerForm(props) {
 
   const [serverName, setServerName] = useState("");
   const [serverPassword, setServerPassword] = useState("");
-  const [serverType, setServerType] = useState("");
+  const [serverType, setServerType] = useState("Nitrado");
   const [serverRegion, setServerRegion] = useState("");
   const [serverUrl, setServerUrl] = useState("");
-  const [serverGameMode, setServerGameMode] = useState("");
+  const [serverGameMode, setServerGameMode] = useState("Adventure");
   const [serverDescription, setServerDescription] = useState("");
   const [serverRules, setServerRules] = useState("");
   const [error, setError] = useState("");
+
+  const updateServerType = (type) => {
+    setServerType(type);
+  };
+
+  const updateServerGameMode = (type) => {
+    setServerGameMode(type);
+  };
 
   const areRequiredFieldsFilled = () => {
     if (!serverName) {
@@ -97,16 +107,11 @@ function AddServerForm(props) {
             placeholder="password"
             required
           ></input>
-          <InputRequired input={serverType}>
-            <h3>Server Type</h3>
-          </InputRequired>
-          <input
-            onChange={(event) => {
-              setServerType(event.target.value);
-            }}
-            placeholder="Nitrado"
-            required
-          ></input>
+          <h3>Server Type</h3>
+          <ToggleServerType
+            selectedButton={serverType}
+            updateServerType={updateServerType}
+          />
           <InputRequired input={serverRegion}>
             <h3>Server Region</h3>
           </InputRequired>
@@ -117,16 +122,11 @@ function AddServerForm(props) {
             placeholder="NA East"
             required
           ></input>
-          <InputRequired input={serverGameMode}>
-            <h3>Game Mode</h3>
-          </InputRequired>
-          <input
-            onChange={(event) => {
-              setServerGameMode(event.target.value);
-            }}
-            placeholder="Adventure"
-            required
-          ></input>
+          <h3>Game Mode</h3>
+          <ToggleGameMode
+            selectedButton={serverGameMode}
+            updateServerGameMode={updateServerGameMode}
+          />
         </div>
         <div className="right-inputs">
           <h2>Description</h2>
