@@ -1,4 +1,23 @@
 .server-view {
+  text-align: left;
+  margin: 0 100px 0px 100px;
   padding-top: 120px;
   color: darkslategrey;
+}
+
+.server-view h1 {
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.server-information {
+  background-color: white;
+  box-shadow: 2px 4px 16px 0px rgb(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.server-information h2 {
+  display: block;
+  margin-bottom: 10px;
 }

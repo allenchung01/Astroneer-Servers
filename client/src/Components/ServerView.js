@@ -25,15 +25,17 @@ export default function ServerView(props) {
       {server ? (
         <div>
           <h1>{server.server_name}</h1>
-          <p>{server.server_status ? "Online" : "Offline"}</p>
-          <p>{server.owner_name}</p>
-          <p>{server.server_url}</p>
-          <p>{server.server_region}</p>
-          <p>{server.server_type}</p>
-          <p>{server.server_game_mode}</p>
-          <p>{server.server_password}</p>
-          <p>{server.server_description}</p>
-          <p>{server.server_rules}</p>
+          <div className="server-information">
+            <h2>{server.server_status ? "Online" : "Offline"}</h2>
+            <h2>{server.owner_name}</h2>
+            <h2>{server.server_url}</h2>
+            <h2>{server.server_region}</h2>
+            <h2>{server.server_type}</h2>
+            <h2>{server.server_game_mode}</h2>
+            <h2>{server.server_password}</h2>
+            <h2>{server.server_description}</h2>
+            <h2>{server.server_rules}</h2>
+          </div>
         </div>
       ) : null}
     </div>
