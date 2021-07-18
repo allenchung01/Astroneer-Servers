@@ -103,6 +103,7 @@ h3 {
   bottom: 100%;
   color: white;
   font-size: 9pt;
+  pointer-events: none;
 }
 
 .popup-description-visible::after {

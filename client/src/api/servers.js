@@ -27,6 +27,18 @@ export const getMyServers = (uid, callback) => {
     });
 };
 
+// Retrieve information from the specified server id.
+export const getServer = (serverId, onSuccess, onFailure) => {
+  axios
+    .get("http://localhost:3001/api/server/".concat(serverId))
+    .then((response) => {
+      onSuccess(response.data);
+    })
+    .catch((reason) => {
+      onFailure(reason);
+    });
+};
+
 // Posts a server listing with the given information, and then executes the callback.
 export const postServer = async (listing, callback, onFailure) => {
   axios

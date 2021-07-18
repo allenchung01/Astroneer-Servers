@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../Styles/ToggleGameMode.css";
 
 export default function ToggleGameMode(props) {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../Styles/ToggleServerType.css";
 
 export default function ToggleServerType(props) {

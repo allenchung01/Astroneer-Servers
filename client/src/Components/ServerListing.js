@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import "../Styles/ServerListing.css";
 
 function ServerListing(props) {
   const { listing } = props;
   const [popUpIsVisible, setPopUpIsVisible] = useState(false);
+  const history = useHistory();
 
   return (
     <div className="on-load-animation">
@@ -16,6 +18,7 @@ function ServerListing(props) {
         onMouseLeave={() => {
           setPopUpIsVisible(false);
         }}
+        onClick={() => history.push(`/server/${listing.id}`)}
       >
         {props.children}
         <div

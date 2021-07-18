@@ -67,6 +67,19 @@ app.get(
   }
 );
 
+app.get("/api/server/:id", (req, res) => {
+  const id = req.params.id;
+  const query = `SELECT * FROM servers WHERE id = ${id};`;
+  pool
+    .query(query)
+    .then((result) => {
+      res.status(200).json(result.rows);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 app.delete(
   "/api/servers/:uid/:server_id",
   checkIfAuthenticated,
