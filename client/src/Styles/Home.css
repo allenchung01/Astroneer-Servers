@@ -172,3 +172,14 @@ input[type="button"] {
   margin-bottom: 20px;
   margin-top: 20px;
 }
+
+@media screen and (max-width: 456px) {
+  #astroneer-servers-header {
+    margin-left: 0px;
+    justify-content: center;
+  }
+  #astroneer-servers-header h1 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}

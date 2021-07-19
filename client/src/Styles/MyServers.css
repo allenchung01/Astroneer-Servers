@@ -1,6 +1,7 @@
 .my-servers {
   text-align: left;
   padding-top: 100px;
+  padding-bottom: 40px;
   margin: 0 100px 0 100px;
   min-height: 100vh;
   background-color: rgb(253, 253, 253);

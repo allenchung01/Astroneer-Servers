@@ -1,23 +1,94 @@
 .server-view {
+  display: block;
   text-align: left;
   margin: 0 100px 0px 100px;
   padding-top: 120px;
+  padding-bottom: 40px;
   color: darkslategrey;
 }
 
 .server-view h1 {
+  display: block;
+  width: 100%;
   margin-bottom: 20px;
   margin-left: 20px;
 }
 
-.server-information {
+.server-information-section {
+  display: inline-block;
   background-color: white;
   box-shadow: 2px 4px 16px 0px rgb(0, 0, 0, 0.05);
   border-radius: 20px;
   padding: 40px;
 }
 
-.server-information h2 {
+.server-information-section .information-field {
   display: block;
   margin-bottom: 10px;
+}
+
+.server-information-section .information-field .key {
+  font-size: 9pt;
+  display: block;
+  color: gray;
+}
+.server-information-section .information-field .value {
+  color: darkslategrey !important;
+  font-size: 12pt;
+  display: block;
+}
+
+.server-information-section #column-1 {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.server-information-section #column-2 {
+  vertical-align: top;
+  display: inline-block;
+}
+
+.server-view h2 {
+  display: block;
+  font-size: 14pt;
+  margin-bottom: 20px;
+}
+
+.server-description-section {
+  display: inline-block;
+  background-color: white;
+  box-shadow: 2px 4px 16px 0px rgb(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 40px;
+  margin: 0 0 0 20px;
+  vertical-align: top;
+  flex-grow: 1;
+}
+
+.server-description-section h3 {
+  display: inline;
+  word-break: break-all;
+}
+
+.server-rules-section {
+  display: inline-block;
+  background-color: white;
+  box-shadow: 2px 4px 16px 0px rgb(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 40px;
+  margin: 20px 0 0 20px;
+  vertical-align: top;
+  flex-grow: 1;
+}
+
+.server-view #flex-box-1 {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+}
+
+.server-view #flex-box-2 {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
 }
