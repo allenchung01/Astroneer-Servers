@@ -1,11 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { getServer } from "../api/servers";
+import { connect } from "react-redux";
 import "../Styles/ServerView.css";
+import EditServerInfo from "./EditServerInfo";
 
-export default function ServerView(props) {
+function ServerView(props) {
   const id = props.match.params.id;
 
   const [server, setServer] = useState(null);
+  const [isEditingServerInfo, setIsEditingServerInfo] = useState(false);
+
+  const userIsOwner = () => {
+    if (props.user && props.user.uid === server.user_uid) {
+      return true;
+    }
+    return false;
+  };
+
+  const handleEditServerInfoButton = () => {
+    console.log("clicked");
+    setIsEditingServerInfo(true);
+  };
 
   useEffect(() => {
     console.log(id);
@@ -22,12 +37,21 @@ export default function ServerView(props) {
 
   return (
     <div>
+      {isEditingServerInfo ? <EditServerInfo /> : null}
       {server ? (
         <div className="server-view">
           <h1>{server.server_name}</h1>
           <div id="flex-box-1">
             <div className="server-information-section">
-              <h2 id="server-info-heading">Server Info</h2>
+              <div id="server-info-heading">
+                <h2>Server Info</h2>
+                {userIsOwner() ? (
+                  <button
+                    id="edit-server-button"
+                    onClick={handleEditServerInfoButton}
+                  ></button>
+                ) : null}
+              </div>
               <div id="column-1">
                 <div className="information-field">
                   <h3 className="key">Status</h3>
@@ -85,9 +109,32 @@ export default function ServerView(props) {
                 </div>
               </div>
             </div>
+            <div id="links-section">
+              <h2>Links</h2>
+              <h3
+                className="information-field"
+                style={{ display: "inline-block" }}
+              >
+                Discord
+              </h3>
+              <div id="discord-logo"></div>
+              <h3 className="value">
+                {server.discord_link
+                  ? server.discord_link
+                  : "No discord linked."}
+              </h3>
+            </div>
           </div>
         </div>
       ) : null}
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps)(ServerView);

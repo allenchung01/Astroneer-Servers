@@ -22,17 +22,17 @@
   padding: 40px;
 }
 
-.server-information-section .information-field {
+.server-view .information-field {
   display: block;
   margin-bottom: 10px;
 }
 
-.server-information-section .information-field .key {
+.server-view .key {
   font-size: 9pt;
   display: block;
   color: gray;
 }
-.server-information-section .information-field .value {
+.server-view .value {
   color: rgb(64, 64, 64) !important;
   font-size: 12pt;
   display: block;
@@ -84,11 +84,55 @@
 .server-view #flex-box-1 {
   display: flex;
   flex-direction: row;
-  width: 70%;
+  width: 100%;
 }
 
 .server-view #flex-box-2 {
   display: inline-flex;
   flex-direction: column;
-  flex: 1;
+  flex: 4;
+}
+
+.server-view #links-section {
+  display: inline-block;
+  color: rgb(64, 64, 64);
+  background-color: white;
+  box-shadow: 2px 4px 16px 0px rgb(0, 0, 0, 0.05);
+  border-radius: 20px 20px 20px 20px;
+  padding: 40px;
+  margin: 0px 0 0px 20px;
+  vertical-align: top;
+}
+
+#discord-logo {
+  display: inline-block;
+  background-image: url("Discord-Logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  margin-left: 5px;
+  vertical-align: middle;
+  width: 20px;
+  height: 12px;
+}
+
+#server-info-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+#edit-server-button {
+  display: inline-block;
+  background-image: url("pencil.png");
+  background-size: contain;
+  background-position: bottom;
+  width: 9pt;
+  height: 9pt;
+  border: none;
+  background-color: white;
+}
+
+#server-info-heading h2 {
+  display: inline-block;
 }

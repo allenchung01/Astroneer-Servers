@@ -1,0 +1,17 @@
+.edit-server-info {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(64, 64, 64, 0.5);
+}
+
+.edit-server-card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  vertical-align: center;
+}
