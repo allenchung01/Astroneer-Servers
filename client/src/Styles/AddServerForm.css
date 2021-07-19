@@ -14,7 +14,7 @@ form h1 {
 }
 
 #add-a-server {
-  color: darkslategrey;
+  color: rgb(64, 64, 64);
   margin-top: 40px;
   margin-left: 40px;
   margin-bottom: 10px;
@@ -44,7 +44,7 @@ form input {
   /*border: 1px solid rgb(0, 0, 0, 0.04);*/
   font-size: 9pt;
   border-bottom: 1px solid whitesmoke;
-  color: darkslategrey;
+  color: rgb(64, 64, 64);
 }
 
 form input::placeholder {
@@ -105,7 +105,7 @@ textarea:focus {
 
 .left-inputs h3 {
   display: inline;
-  color: darkslategrey;
+  color: rgb(64, 64, 64);
   font-size: 9pt;
   text-align: left;
 }
@@ -131,7 +131,7 @@ textarea {
   border: none;
   resize: none;
   font-size: 9pt;
-  color: darkslategrey;
+  color: rgb(64, 64, 64);
   margin-top: 20px;
   margin-bottom: 20px;
   text-align: left;
@@ -197,7 +197,7 @@ form input[type="button"]:active {
   display: block;
   font-size: 14pt;
   font-weight: bold;
-  color: darkslategrey;
+  color: rgb(64, 64, 64);
   text-align: center;
 }
 

@@ -10,7 +10,7 @@
 
 .selected-button {
   display: inline-block;
-  background-color: darkslategrey;
+  background-color: rgb(64, 64, 64);
   color: white;
   border-radius: 10px;
   padding: 7px;
@@ -23,7 +23,7 @@
 .unselected-button {
   display: inline-block;
   background-color: white;
-  color: darkslategrey;
+  color: rgb(64, 64, 64);
   border: 1px solid whitesmoke;
   border-radius: 10px;
   padding: 7px;
@@ -36,4 +36,15 @@
   display: inline-block;
   width: 10px;
   height: 10px;
+}
+
+.hint-popup {
+  position: absolute;
+  margin-left: -120px;
+  background-color: rgb(64, 64, 64, 0.95);
+  pointer-events: none;
+  padding: 10px;
+  color: white;
+  font-size: 8pt;
+  border-radius: 10px;
 }

@@ -7,7 +7,7 @@
 
 .selected-button {
   display: inline-block;
-  background-color: darkslategrey;
+  background-color: rgb(64, 64, 64);
   color: white;
   border-radius: 10px;
   padding: 7px;
@@ -20,7 +20,7 @@
 .unselected-button {
   display: inline-block;
   background-color: white;
-  color: darkslategrey;
+  color: rgb(64, 64, 64);
   border: 1px solid whitesmoke;
   border-radius: 10px;
   padding: 7px;

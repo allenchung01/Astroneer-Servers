@@ -4,7 +4,7 @@
   margin: 0 100px 0px 100px;
   padding-top: 120px;
   padding-bottom: 40px;
-  color: darkslategrey;
+  color: rgb(64, 64, 64);
 }
 
 .server-view h1 {
@@ -33,7 +33,7 @@
   color: gray;
 }
 .server-information-section .information-field .value {
-  color: darkslategrey !important;
+  color: rgb(64, 64, 64) !important;
   font-size: 12pt;
   display: block;
 }

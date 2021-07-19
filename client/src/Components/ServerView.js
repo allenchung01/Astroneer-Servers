@@ -65,7 +65,9 @@ export default function ServerView(props) {
                 </div>
                 <div className="information-field">
                   <h3 className="key">Password</h3>
-                  <h3 className="value">{server.server_password}</h3>
+                  <h3 className="value">
+                    {server.server_password ? server.server_password : "N/A"}
+                  </h3>
                 </div>
               </div>
             </div>
