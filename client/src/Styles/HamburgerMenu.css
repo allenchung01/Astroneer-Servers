@@ -54,3 +54,16 @@
     display: block;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .nav-bar {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .nav-bar .tabs li {
+    display: none;
+  }
+  .hamburger-container {
+    display: block;
+  }
+}
