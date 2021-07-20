@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { postServer } from "../api/servers";
+import { getServers, postServer } from "../api/servers";
 import InputRequired from "./InputRequired";
 import ToggleGameMode from "./ToggleGameMode";
 import ToggleServerType from "./ToggleServerType";
@@ -67,7 +67,8 @@ function AddServerForm(props) {
     postServer(
       listing,
       () => {
-        setServerListings([listing, ...serverListings]);
+        getServers(setServerListings);
+        //setServerListings([listing, ...serverListings]);
         setError("");
       },
       () => {
