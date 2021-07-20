@@ -85,7 +85,7 @@ app.delete(
   checkIfAuthenticated,
   checkIfAuthorized,
   (req, res) => {
-    const server_id = req.params.server_id;
+    const server_id = req.params["server_id"];
     const query = `DELETE FROM servers WHERE id = '${server_id}';`;
     pool
       .query(query)
@@ -122,6 +122,36 @@ app.post("/api/servers", checkIfAuthenticated, (req, res) => {
       res.status(400).send(error);
     });
 });
+
+app.put(
+  "/api/servers/:uid/:server_id",
+  checkIfAuthenticated,
+  checkIfAuthorized,
+  (req, res) => {
+    const server_id = req.params["server_id"];
+    const {
+      server_status,
+      owner_name,
+      server_url,
+      server_game_mode,
+      server_region,
+      server_type,
+      server_password,
+      server_description,
+      server_rules,
+      discord_link,
+    } = req.body;
+    const query = `UPDATE servers SET server_status = ${server_status}, owner_name = '${owner_name}', server_url = '${server_url}', server_game_mode = '${server_game_mode}', server_region = '${server_region}', server_type = '${server_type}', server_password = '${server_password}', server_description = '${server_description}', server_rules = '${server_rules}', discord_link = '${discord_link}' WHERE id = '${server_id}';`;
+    pool
+      .query(query)
+      .then((result) => {
+        res.status(200).send("Success");
+      })
+      .catch((reason) => {
+        res.status(400).send(reason);
+      });
+  }
+);
 
 //
 /*app.get("*", (req, res) => {

@@ -51,6 +51,26 @@ export const postServer = async (listing, callback, onFailure) => {
     });
 };
 
+export const updateServer = (
+  uid,
+  server_id,
+  listingUpdates,
+  onSuccess,
+  onFailure
+) => {
+  axios
+    .put(
+      `http://localhost:3001/api/servers/${uid}/${server_id}`,
+      listingUpdates
+    )
+    .then((response) => {
+      onSuccess(response);
+    })
+    .catch((reason) => {
+      onFailure(reason);
+    });
+};
+
 // Deletes the server with the specified server id.
 export const deleteServer = (uid, server_id, onSuccess, onFailure) => {
   axios

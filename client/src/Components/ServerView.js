@@ -3,12 +3,20 @@ import { getServer } from "../api/servers";
 import { connect } from "react-redux";
 import "../Styles/ServerView.css";
 import EditServerInfo from "./EditServerInfo";
+import EditServerDescription from "./EditServerDescription";
+import EditServerRules from "./EditServerRules";
+import EditServerDiscordLink from "./EditServerDiscordLink";
 
 function ServerView(props) {
   const id = props.match.params.id;
 
   const [server, setServer] = useState(null);
   const [isEditingServerInfo, setIsEditingServerInfo] = useState(false);
+  const [isEditingServerDescription, setIsEditingServerDescription] =
+    useState(false);
+  const [isEditingServerRules, setIsEditingServerRules] = useState(false);
+  const [isEditingServerDiscordLink, setIsEditingServerDiscordLink] =
+    useState(false);
 
   const userIsOwner = () => {
     if (props.user && props.user.uid === server.user_uid) {
@@ -20,6 +28,18 @@ function ServerView(props) {
   const handleEditServerInfoButton = () => {
     console.log("clicked");
     setIsEditingServerInfo(true);
+  };
+
+  const handleEditServerDescriptionButton = () => {
+    setIsEditingServerDescription(true);
+  };
+
+  const handleEditServerRulesButton = () => {
+    setIsEditingServerRules(true);
+  };
+
+  const handleEditServerDiscordLink = () => {
+    setIsEditingServerDiscordLink(true);
   };
 
   useEffect(() => {
@@ -37,7 +57,87 @@ function ServerView(props) {
 
   return (
     <div>
-      {isEditingServerInfo ? <EditServerInfo /> : null}
+      {isEditingServerInfo ? (
+        <EditServerInfo
+          server={server}
+          onCancel={() => {
+            setIsEditingServerInfo(false);
+          }}
+          onSave={() => {
+            setIsEditingServerInfo(false);
+            getServer(
+              id,
+              (data) => {
+                setServer(data[0]);
+              },
+              (reason) => {
+                console.log(reason);
+              }
+            );
+          }}
+        />
+      ) : null}
+      {isEditingServerDescription ? (
+        <EditServerDescription
+          server={server}
+          onCancel={() => {
+            setIsEditingServerDescription(false);
+          }}
+          onSave={() => {
+            setIsEditingServerDescription(false);
+            getServer(
+              id,
+              (data) => {
+                setServer(data[0]);
+              },
+              (reason) => {
+                console.log(reason);
+              }
+            );
+          }}
+        />
+      ) : null}
+      {isEditingServerRules ? (
+        <EditServerRules
+          server={server}
+          onCancel={() => {
+            setIsEditingServerRules(false);
+          }}
+          onSave={() => {
+            setIsEditingServerRules(false);
+            getServer(
+              id,
+              (data) => {
+                setServer(data[0]);
+              },
+              (reason) => {
+                console.log(reason);
+              }
+            );
+          }}
+        />
+      ) : null}
+      {isEditingServerDiscordLink ? (
+        <EditServerDiscordLink
+          server={server}
+          onCancel={() => {
+            setIsEditingServerDiscordLink(false);
+          }}
+          onSave={() => {
+            setIsEditingServerDiscordLink(false);
+            getServer(
+              id,
+              (data) => {
+                setServer(data[0]);
+              },
+              (reason) => {
+                console.log(reason);
+              }
+            );
+          }}
+        />
+      ) : null}
+
       {server ? (
         <div className="server-view">
           <h1>{server.server_name}</h1>
@@ -97,20 +197,44 @@ function ServerView(props) {
             </div>
             <div id="flex-box-2">
               <div className="server-description-section">
-                <h2>Description</h2>
+                <div id="server-info-heading">
+                  <h2>Description</h2>
+                  {userIsOwner() ? (
+                    <button
+                      id="edit-server-button"
+                      onClick={handleEditServerDescriptionButton}
+                    ></button>
+                  ) : null}
+                </div>
                 <div className="information-field">
                   <h3 className="value">{server.server_description}</h3>
                 </div>
               </div>
               <div className="server-rules-section">
-                <h2>Rules</h2>
+                <div id="server-info-heading">
+                  <h2>Rules</h2>
+                  {userIsOwner() ? (
+                    <button
+                      id="edit-server-button"
+                      onClick={handleEditServerRulesButton}
+                    ></button>
+                  ) : null}
+                </div>
                 <div className="information-field">
                   <h3 className="value">{server.server_rules}</h3>
                 </div>
               </div>
             </div>
             <div id="links-section">
-              <h2>Links</h2>
+              <div id="server-info-heading">
+                <h2>Links</h2>
+                {userIsOwner() ? (
+                  <button
+                    id="edit-server-button"
+                    onClick={handleEditServerDiscordLink}
+                  ></button>
+                ) : null}
+              </div>
               <h3
                 className="information-field"
                 style={{ display: "inline-block" }}
@@ -118,11 +242,13 @@ function ServerView(props) {
                 Discord
               </h3>
               <div id="discord-logo"></div>
-              <h3 className="value">
-                {server.discord_link
-                  ? server.discord_link
-                  : "No discord linked."}
-              </h3>
+              {server.discord_link ? (
+                <a className="value" href={server.discord_link}>
+                  {server.discord_link}
+                </a>
+              ) : (
+                <h3 className="value">No discord linked.</h3>
+              )}
             </div>
           </div>
         </div>

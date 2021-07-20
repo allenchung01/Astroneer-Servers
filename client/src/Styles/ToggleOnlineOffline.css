@@ -1,0 +1,38 @@
+.toggle-online-offline {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.selected-button {
+  display: inline-block !important;
+  background-color: rgb(64, 64, 64) !important;
+  color: white !important;
+  border-radius: 10px !important;
+  padding: 7px !important;
+  border: 1px solid white !important;
+  font-size: 7pt !important;
+  margin: 0px !important;
+  flex: 1 !important;
+  box-shadow: none !important;
+}
+
+.unselected-button {
+  display: inline-block !important;
+  background-color: white !important;
+  color: rgb(64, 64, 64) !important;
+  border: 1px solid whitesmoke !important;
+  border-radius: 10px !important;
+  padding: 7px !important;
+  font-size: 7pt !important;
+  margin: 0px !important;
+  flex: 1 !important;
+  box-shadow: none !important;
+}
+
+#toggle-spacing {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+}
