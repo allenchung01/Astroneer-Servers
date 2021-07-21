@@ -35,7 +35,20 @@ app.use(morgan("dev"));
 //
 //app.use(express.static(path.join(__dirname, "build")));
 
-app.use("/api/users", require("./routes/users.js"));
+//app.use("/api/users", require("./routes/users.js"));
+
+app.get("/api/users/:uid", (req, res) => {
+  const uid = req.params.uid;
+  const query = `SELECT * FROM users WHERE user_uid = '${uid}'`;
+  pool
+    .query(query)
+    .then((result) => {
+      res.status(200).json(result.rows);
+    })
+    .catch((error) => {
+      res.status(400).send(error);
+    });
+});
 
 app.get("/api/servers", (req, res) => {
   const query = "SELECT * FROM servers ORDER BY id DESC;";
@@ -120,6 +133,20 @@ app.post("/api/servers", checkIfAuthenticated, (req, res) => {
     })
     .catch((error) => {
       res.status(400).send(error);
+    });
+});
+
+app.post("/api/users", (req, res) => {
+  console.log("recieved request");
+  const { user_uid, username } = req.body;
+  const query = `INSERT INTO users (user_uid, username) VALUES ('${user_uid}', '${username}');`;
+  pool
+    .query(query)
+    .then((result) => {
+      res.status(200).send(result);
+    })
+    .catch((reason) => {
+      res.status(400).send(reason);
     });
 });
 

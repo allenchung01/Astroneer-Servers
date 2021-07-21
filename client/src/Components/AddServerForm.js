@@ -6,6 +6,7 @@ import InputRequired from "./InputRequired";
 import ToggleGameMode from "./ToggleGameMode";
 import ToggleServerType from "./ToggleServerType";
 import "../Styles/AddServerForm.css";
+import { getUser } from "../api/users";
 
 function AddServerForm(props) {
   const { serverListings, setServerListings } = props;
@@ -48,33 +49,42 @@ function AddServerForm(props) {
     return true;
   };
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if (!areRequiredFieldsFilled()) {
       return;
     }
-    const listing = {
-      server_name: serverName,
-      owner_name: props.user ? props.user.email : null,
-      server_url: serverUrl,
-      server_password: serverPassword,
-      server_type: serverType,
-      server_region: serverRegion,
-      server_description: serverDescription,
-      server_rules: serverRules,
-      server_game_mode: serverGameMode,
-      server_status: true,
-    };
-    postServer(
-      listing,
-      () => {
-        getServers(setServerListings);
-        //setServerListings([listing, ...serverListings]);
-        setError("");
-      },
-      () => {
-        setError("Failed to post server.");
-      }
-    );
+    if (props.user === null) {
+      return;
+    }
+    try {
+      const username = await getUser(props.user.uid);
+      console.log(username);
+      const listing = {
+        server_name: serverName,
+        owner_name: username,
+        server_url: serverUrl,
+        server_password: serverPassword,
+        server_type: serverType,
+        server_region: serverRegion,
+        server_description: serverDescription,
+        server_rules: serverRules,
+        server_game_mode: serverGameMode,
+        server_status: true,
+      };
+      postServer(
+        listing,
+        () => {
+          getServers(setServerListings);
+          //setServerListings([listing, ...serverListings]);
+          setError("");
+        },
+        () => {
+          setError("Failed to post server.");
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

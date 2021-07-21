@@ -1,13 +1,13 @@
 import { auth } from "./firebase.js";
 
-export const createUserAccount = (email, password, callback) => {
+export const createUserAccount = (email, password, onSuccess, onFailure) => {
   auth
     .createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
-      callback();
+      onSuccess(userCredential.user.uid);
     })
     .catch((error) => {
-      callback(error);
+      onFailure(error);
     });
 };
 
